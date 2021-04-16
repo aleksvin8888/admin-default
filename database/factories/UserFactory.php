@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -25,9 +26,15 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+//            'email_verified_at' => now(),
+            'password'          => Hash::make('11111111'), // password
+            'role_id'           => rand(1, 3),
+            'verification_code' => Str::random(10),
+            'is_verificated'    => rand(0,1),
+            'soft_deleted'      => rand(0,1),
+            'slug_name'         => Str::random(10),
+            'is_blocked'        => rand(0,1),
+
         ];
     }
 
@@ -36,12 +43,12 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
-    }
+//    public function unverified()
+//    {
+//        return $this->state(function (array $attributes) {
+//            return [
+//                'email_verified_at' => null,
+//            ];
+//        });
+//    }
 }
