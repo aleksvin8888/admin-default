@@ -1,4 +1,7 @@
 @extends('admin.layouts.app')
+
+@section('title', 'Add New User')
+
 @section('mainContent')
 
 <div class="col-md-9">
@@ -8,21 +11,30 @@
     <form method="POST" action="{{ route('users.store') }}">
         @csrf
         <div class="form-group">
-            <label for="inputEmail" class="col-xs-2 control-label">name:</label>
+            <label for="inputEmail" class="col-xs-2 control-label">Name:</label>
             <div class="col-xs-8">
-                <input type="text" name="name" class="form-control" id="inputEmail" placeholder="Enter name">
+                <input type="text" name="name" class="form-control" id="inputEmail" placeholder="Enter name"  value="{{old('name')}}">
+                @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="form-group">
-            <label for="inputEmail" class="col-xs-2 control-label">email:</label>
+            <label for="inputEmail" class="col-xs-2 control-label">Email:</label>
             <div class="col-xs-8">
-                <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Enter email">
+                <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Enter email" value="{{old('email')}}">
+                @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="form-group">
-            <label for="inputPassword" class="col-xs-2 control-label">Пароль:</label>
+            <label for="inputPassword" class="col-xs-2 control-label">Password:</label>
             <div class="col-xs-8">
                 <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter password">
+                @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="form-group">
@@ -34,4 +46,4 @@
 </div>
 
 @endsection
-@section('title', 'Add New User')
+
