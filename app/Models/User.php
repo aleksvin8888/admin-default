@@ -47,9 +47,16 @@ class User extends Authenticatable
 //        'email_verified_at' => 'datetime',
     ];
 
+
     public function user()
     {
         return $this->belongsTo(Role::class);
+    }
+
+// heshig   password  User
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
     }
 
 }
