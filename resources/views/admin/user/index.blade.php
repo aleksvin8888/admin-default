@@ -43,6 +43,7 @@
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
 
+
                         @csrf
                         @method('DELETE')
 
@@ -67,3 +68,4 @@
     </div>
 </div>
 @endsection
+
