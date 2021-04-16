@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('verification_code')->nullable();
-            $table->integer('is_verificated')->default(0);
+            $table->boolean('is_verificated')->default(0);
             $table->string('soft_deleted')->nullable();
             $table->string('slug_name')->nullable();
-            $table->integer('is_blocked')->default(0);
+            $table->boolean('is_blocked')->default(0);
             $table->timestamps();
 
             $table->foreign('role_id')->references('id')->on('roles');
