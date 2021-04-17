@@ -134,5 +134,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
+    <orderEntry type="library" name="twitter-bootstrap" level="application" />
+    <orderEntry type="library" name="solid" level="application" />
+    <orderEntry type="library" name="fontawesome" level="application" />
   </component>
 </module>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\createUserRequest;
 use App\Models\Role;
 use App\Models\User;
@@ -100,10 +99,12 @@ class UserController extends MainController
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+
+        return  redirect()->route('users.index');
     }
 }
