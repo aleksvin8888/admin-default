@@ -1,4 +1,6 @@
 @extends('admin.layouts.app')
+@extends('admin.layouts.modal')
+
 
 @section('mainContent')
 <div class="container mt-2">
@@ -33,7 +35,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>
-                    <form action="{{ route('users.destroy', $user) }}" method="POST">
+
 
                         <a href="{{ route('users.show', $user) }}" title="show">
                             <i class="fas fa-eye text-success  fa-lg"></i>
@@ -43,14 +45,20 @@
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
 
-
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                        <a href="#" onclick='' >
                             <i class="fas fa-trash fa-lg text-danger"></i>
-                        </button>
-                    </form>
+                        </a>
+
+
+
+{{--                    <form action="#" method="POST">--}}
+{{--                        @csrf--}}
+
+{{--                        <button type="submit" title="delete" style="border: none; background-color:transparent;">--}}
+{{--                                <i class="fas fa-trash fa-lg text-danger"></i>--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+
                 </td>
             </tr>
         @endforeach
