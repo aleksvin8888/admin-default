@@ -7,6 +7,7 @@ use App\Http\Requests\createUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserController extends MainController
@@ -42,7 +43,9 @@ class UserController extends MainController
     public function store(createUserRequest  $request)
     {
         $slug = Str::slug($request->email);
+        $hashpassword = Hash::make($request->password);
 
+        $request['password'] = $hashpassword;
         $request['slug_name'] = $slug;
 
         User::create($request->only(['name', 'email', 'password', 'slug_name']));
