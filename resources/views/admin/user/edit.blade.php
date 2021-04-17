@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
-
+@section('title') Edit {{ $user->name }}
+@endsection
 @section('mainContent')
     <div class="container mt-2">
         <div class="row">

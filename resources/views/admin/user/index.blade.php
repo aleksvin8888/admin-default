@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('title', 'Users')
 
 @section('mainContent')
 <div class="container col-lg-10 mt-2">

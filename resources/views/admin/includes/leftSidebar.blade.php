@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{ route('roles.index') }}" class="nav-link {{ Request::path()=='admin/roles' ? 'active' : 'text-white'}}">
                Roles
             </a>
         </li>
