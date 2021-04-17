@@ -1,9 +1,8 @@
 @extends('admin.layouts.app')
-@extends('admin.layouts.modal')
-
+@section('title', 'Users')
 
 @section('mainContent')
-<div class="container mt-2">
+<div class="container col-lg-10 mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -35,7 +34,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>
-
+                    <form action="{{ route('users.destroy', $user) }}" method="POST">
 
                         <a href="{{ route('users.show', $user) }}" title="show">
                             <i class="fas fa-eye text-success  fa-lg"></i>
@@ -45,20 +44,13 @@
                             <i class="fas fa-edit  fa-lg"></i>
                         </a>
 
-                        <a href="#" onclick='' >
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
                             <i class="fas fa-trash fa-lg text-danger"></i>
-                        </a>
-
-
-
-{{--                    <form action="#" method="POST">--}}
-{{--                        @csrf--}}
-
-{{--                        <button type="submit" title="delete" style="border: none; background-color:transparent;">--}}
-{{--                                <i class="fas fa-trash fa-lg text-danger"></i>--}}
-{{--                        </button>--}}
-{{--                    </form>--}}
-
+                        </button>
+                    </form>
                 </td>
             </tr>
         @endforeach
@@ -76,4 +68,3 @@
     </div>
 </div>
 @endsection
-
