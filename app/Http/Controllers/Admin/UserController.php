@@ -31,7 +31,7 @@ class UserController extends MainController
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -42,7 +42,9 @@ class UserController extends MainController
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->only(['name', 'email', 'password']));
+
+        return redirect()->route('users.index');
     }
 
     /**
