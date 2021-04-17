@@ -1,8 +1,13 @@
 @include('admin.includes.header')
 <body>
-<div class="container-fluid ">
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="sidebar-wrapper">
+            @include('admin.includes.leftSidebar')
+        </div>
+    </div>
     <div class="row ">
-        @include('admin.includes.leftSidebar')
+
         @yield('mainContent')
     </div>
 </div>
