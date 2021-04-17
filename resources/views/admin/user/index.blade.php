@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
+@section('title', 'Users')
 
 @section('mainContent')
-<div class="container mt-2">
+<div class="container col-lg-10 mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">

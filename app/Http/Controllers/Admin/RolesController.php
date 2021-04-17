@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\createUserRequest;
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,32 +15,32 @@ class UserController extends Controller
      */
     public function index()
     {
-         dd('  add ->  INDEX USER');
+        $roles = Role::paginate(5);
+
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-
+        return view('admin.roles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function store(createUserRequest  $request)
+    public function store(Request $request)
     {
+        Role::create($request->only(['title', 'description']));
 
-        //$password = Hash::make('$request->password');
-
-
-
+        return redirect()->route('roles.index')->with('success','Role was created successfully');
     }
 
     /**
@@ -61,9 +60,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        return view('admin.roles.edit', compact('role'));
     }
 
     /**
@@ -73,9 +72,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'title'       => 'required',
+            'description'    => 'required',
+        ]);
+
+        $role->update($request->all());
+
+        return redirect()->route('roles.index')
+            ->with('success', 'Role updated successfully');
     }
 
     /**
