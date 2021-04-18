@@ -49,12 +49,6 @@
                         @csrf
                         @method('DELETE')
 
-                    <!-- Button trigger modal -->
-{{--                        <button type="button" title="delete" style="border: none; background-color:transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">--}}
-{{--                            <i class="fas fa-trash fa-lg text-danger"></i>--}}
-{{--                        </button>--}}
-
-
                         <button type="button" class="btn btn-primary" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-trash fa-lg text-danger"></i>
                         </button>
@@ -74,12 +68,11 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Delete</button>
+                                        <button type="submit" class="btn btn-primary">Delete</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </td>
             </tr>
