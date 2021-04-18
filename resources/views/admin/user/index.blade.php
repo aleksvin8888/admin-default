@@ -39,18 +39,18 @@
                     <form action="{{ route('users.destroy', $user) }}" method="POST">
 
                         <a href="{{ route('users.show', $user) }}" title="show">
-                            <i class="fas fa-eye text-success  fa-lg"></i>
+                            <i class="fas fa-eye text-success  fa-lg ml-2"></i>
                         </a>
 
                         <a href="{{ route('users.edit', $user) }}">
-                            <i class="fas fa-edit  fa-lg"></i>
+                            <i class="fas fa-edit  fa-lg ml-2"></i>
                         </a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="button" class="btn btn-primary" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
-                            <i class="fas fa-trash fa-lg text-danger"></i>
+                        <button type="button" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                         </button>
 
                         <!-- Modal -->
