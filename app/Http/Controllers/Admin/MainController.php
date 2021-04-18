@@ -11,7 +11,5 @@ class MainController extends Controller
         return view('admin.pages.dashboard');
     }
 
-    public function modal(){
-        return view('modal');
-    }
+
 }

@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends MainController
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +15,9 @@ class UserController extends MainController
      */
     public function index()
     {
+        $roles = Role::paginate(5);
 
-            $users = User::paginate(5);
-
-            return view('admin.user.index', compact('users'));
-
-
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -31,7 +27,7 @@ class UserController extends MainController
      */
     public function create()
     {
-        return view('admin.user.create');
+        return view('admin.roles.create');
     }
 
     /**
@@ -42,65 +38,61 @@ class UserController extends MainController
      */
     public function store(Request $request)
     {
-        User::create($request->only(['name', 'email', 'password']));
+        Role::create($request->only(['title', 'description']));
 
-        return redirect()->route('users.index');
+        return redirect()->route('roles.index')->with('success','Role was created successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        return view('admin.user.show', compact('user'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Role $role)
     {
-        $roleList = Role::all();
-        return view('admin.user.edit', compact('user', 'roleList'));
+        return view('admin.roles.edit', compact('role'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Role $role)
     {
         $request->validate([
-            'name'       => 'required',
-            'role_id'    => 'required',
+            'title'       => 'required',
+            'description'    => 'required',
         ]);
 
-        $user->update($request->all());
+        $role->update($request->all());
 
-        return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+        return redirect()->route('roles.index')
+            ->with('success', 'Role updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-
-        return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully');
+        //
     }
 }
