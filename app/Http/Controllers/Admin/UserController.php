@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\createUserRequest;
+use App\Http\Requests\updateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,7 +42,7 @@ class UserController extends MainController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createUserRequest $request)
     {
         User::create($request->only(['name', 'email', 'password']));
 
@@ -77,12 +79,8 @@ class UserController extends MainController
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(updateUserRequest $request, User $user)
     {
-        $request->validate([
-            'name'       => 'required',
-            'role_id'    => 'required',
-        ]);
 
         $user->update($request->all());
 
