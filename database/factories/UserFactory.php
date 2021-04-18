@@ -29,9 +29,9 @@ class UserFactory extends Factory
 //            'email_verified_at' => now(),
             'password'          => Hash::make('11111111'), // password
             'role_id'           => rand(1, 3),
-            'verification_code' => Str::random(10),
-            'is_verificated'    => rand(1,0),
-            'soft_deleted'      => rand(1,0),
+
+
+            'soft_deleted'      => rand(0,1),
             'slug_name'         => Str::random(10),
             'is_blocked'        => rand(0,1),
 
