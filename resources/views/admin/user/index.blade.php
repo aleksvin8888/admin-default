@@ -50,7 +50,12 @@
                         @method('DELETE')
 
                     <!-- Button trigger modal -->
-                        <button type="button" title="delete" style="border: none; background-color:transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+{{--                        <button type="button" title="delete" style="border: none; background-color:transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">--}}
+{{--                            <i class="fas fa-trash fa-lg text-danger"></i>--}}
+{{--                        </button>--}}
+
+
+                        <button type="button" class="btn btn-primary" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-trash fa-lg text-danger"></i>
                         </button>
 
@@ -60,18 +65,21 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <p style="color: black;">Уверены?</p>
+                                    <div class="modal-body" style="color:black">
+                                        Удаляем?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Delete</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </td>
             </tr>
