@@ -25,16 +25,26 @@
         <tr>
             <th>Id</th>
             <th>User Name</th>
+            <th>User Email </th>
             <th>User Role</th>
             <th>Date Created</th>
+            <th>Blocked</th>
             <th>Actions</th>
         </tr>
         @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
                 <td>{{ $user->role->title }}</td>
                 <td>{{ $user->created_at }}</td>
+                <td>
+                    @if($user->is_blocked == 0)
+                        <p>NO</p>
+                    @else
+                        <p>YS</p>
+                    @endif
+                </td>
                 <td>
                     <form action="{{ route('users.destroy', $user) }}" method="POST">
 
