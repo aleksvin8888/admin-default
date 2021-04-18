@@ -1,12 +1,12 @@
 
 
-<div class=" d-flex flex-column text-white bg-dark col-lg-2 ">
+<div class="d-flex flex-column text-white bg-dark col-lg-2 p-0">
 
-    <a href="{{ route('main') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <h1">Admin-defult</h1>
+    <a href="{{ route('main') }}" class="d-flex align-items-center mt-3 mb-3 mb-md-2 me-md-2 text-white text-decoration-none">
+        <h2>Admin-defult</h2>
     </a>
     <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
+    <ul class="nav nav-pills flex-column mb-0" style="width: auto;">
         <li class="nav-item">
             <a href="{{ route('main') }}" class="nav-link {{ Request::path()=='admin' ? 'active' : 'text-white'}}">
                Home
