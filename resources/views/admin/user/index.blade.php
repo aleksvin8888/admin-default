@@ -24,6 +24,7 @@
         <tr>
             <th>Id</th>
             <th>User Name</th>
+            <th>User Role</th>
             <th>Date Created</th>
             <th>Actions</th>
         </tr>
@@ -31,6 +32,7 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->role->title }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>
                     <form action="{{ route('users.destroy', $user) }}" method="POST">
@@ -46,9 +48,29 @@
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                    <!-- Button trigger modal -->
+                        <button type="button" title="delete" style="border: none; background-color:transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fas fa-trash fa-lg text-danger"></i>
                         </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p style="color: black;">Уверены?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </td>
             </tr>

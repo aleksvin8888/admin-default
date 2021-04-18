@@ -10,4 +10,8 @@ class MainController extends Controller
     public function dashboard(){
         return view('admin.pages.dashboard');
     }
+
+    public function modal(){
+        return view('modal');
+    }
 }

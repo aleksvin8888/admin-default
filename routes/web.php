@@ -16,5 +16,5 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 });
 
 
-
+Route::get('/modal', [MainController::class, 'modal']);
 
