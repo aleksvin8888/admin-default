@@ -18,9 +18,12 @@ class UserController extends MainController
      */
     public function index()
     {
+
             $users = User::paginate(5);
 
             return view('admin.user.index', compact('users'));
+
+
     }
 
     /**
@@ -55,12 +58,12 @@ class UserController extends MainController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.user.show', compact('user'));
     }
 
     /**
@@ -98,13 +101,14 @@ class UserController extends MainController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        User::find($id)->delete();
+        $user->delete();
 
-        return  redirect()->route('users.index');
+        return redirect()->route('users.index')
+            ->with('success', 'User deleted successfully');
     }
 }

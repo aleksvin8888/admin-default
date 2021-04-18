@@ -25,6 +25,7 @@
         <tr>
             <th>Id</th>
             <th>User Name</th>
+            <th>User Role</th>
             <th>Date Created</th>
             <th>Actions</th>
         </tr>
@@ -32,29 +33,54 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->role->title }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>
+                    <form action="{{ route('users.destroy', $user) }}" method="POST">
 
-                    <div class="row">
                         <a href="{{ route('users.show', $user) }}" title="show">
-                            <i class="fas fa-eye text-success  fa-lg ml-2"></i>
+                            <i class="fas fa-eye text-success  fa-lg"></i>
                         </a>
 
                         <a href="{{ route('users.edit', $user) }}">
-                            <i class="fas fa-edit  fa-lg ml-2"></i>
+                            <i class="fas fa-edit  fa-lg"></i>
                         </a>
 
-                        <form method="POST" action="{{route('users.destroy', $user->id )}}" >
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
+                        @csrf
+                        @method('DELETE')
 
-                            <button class="fas fa-trash fa-lg ml-2 text-danger"
-                                    onclick="return confirm(' !!!! DENGER you delete User {{$user->name}}  !!!! ')" >
+                    <!-- Button trigger modal -->
+{{--                        <button type="button" title="delete" style="border: none; background-color:transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">--}}
+{{--                            <i class="fas fa-trash fa-lg text-danger"></i>--}}
+{{--                        </button>--}}
 
-                            </button>
-                        </form>
-                    </div>
 
+                        <button type="button" class="btn btn-primary" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-trash fa-lg text-danger"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="color:black">
+                                        Удаляем?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
                 </td>
             </tr>
         @endforeach
@@ -71,8 +97,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection
-
-
