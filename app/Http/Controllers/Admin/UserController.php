@@ -18,12 +18,9 @@ class UserController extends MainController
      */
     public function index()
     {
-
             $users = User::paginate(5);
 
             return view('admin.user.index', compact('users'));
-
-
     }
 
     /**
@@ -102,7 +99,7 @@ class UserController extends MainController
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function destroy(User $user)
     {
