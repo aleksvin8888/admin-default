@@ -36,7 +36,12 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+
+                @if($user->role_id == null)
+                <td>No Group</td>
+                @else
                 <td>{{ $user->role->title }}</td>
+                @endif
                 <td>{{ $user->created_at }}</td>
                 <td>
                     @if($user->is_blocked == 0)
@@ -68,7 +73,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel" style="color:black">Delete confirmation</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>

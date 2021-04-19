@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('role_id')->unsigned()->default(1);;
+            $table->integer('role_id')->unsigned()->default(1)->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_blocked')->default(0);
             $table->timestamps();
 
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
 //            $table->timestamp('email_verified_at')->nullable();
 //            $table->rememberToken();
         });

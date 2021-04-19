@@ -16,11 +16,12 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $roles = [];
+        $availableGroups = ['admin', 'user1', 'user2'];
 
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 0; $i <= 2; $i++) {
             $roles[] = [
-                'title'           => Str::random(10),
-                'description'     => Str::random(10),
+                'title'           => $availableGroups[$i],
+                'description'     => Str::random('100'),
             ];
         }
 
