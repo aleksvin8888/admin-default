@@ -25,31 +25,64 @@
         <tr>
             <th>Id</th>
             <th>User Name</th>
+            <th>User Email </th>
+            <th>User Role</th>
             <th>Date Created</th>
+            <th>Blocked</th>
             <th>Actions</th>
         </tr>
         @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->role->title }}</td>
                 <td>{{ $user->created_at }}</td>
+                <td>
+                    @if($user->is_blocked == 0)
+                        <p>NO</p>
+                    @else
+                        <p>YS</p>
+                    @endif
+                </td>
                 <td>
                     <form action="{{ route('users.destroy', $user) }}" method="POST">
 
                         <a href="{{ route('users.show', $user) }}" title="show">
-                            <i class="fas fa-eye text-success  fa-lg"></i>
+                            <i class="fas fa-eye text-success  fa-lg ml-2"></i>
                         </a>
 
                         <a href="{{ route('users.edit', $user) }}">
-                            <i class="fas fa-edit  fa-lg"></i>
+                            <i class="fas fa-edit  fa-lg ml-2"></i>
                         </a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                            <i class="fas fa-trash fa-lg text-danger"></i>
+                        <button type="button" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                         </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="color:black">
+                                        Удаляем?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </td>
             </tr>

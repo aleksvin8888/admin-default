@@ -14,7 +14,7 @@
                 <label for="inputTitle" class="col-xs-2 control-label">Title:</label>
                 <div class="col-xs-8">
                     <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Role title"  value="{{old('title')}}">
-                    @error('name')
+                    @error('title')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -23,7 +23,7 @@
                 <label for="inputDescription" class="col-xs-2 control-label">Description:</label>
                 <div class="col-xs-8">
                     <input type="text" name="description" class="form-control" id="inputDescription" placeholder="Enter description for role" value="{{old('description')}}">
-                    @error('email')
+                    @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
