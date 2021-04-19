@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,20 +24,10 @@ class updateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'       => ['required', 'min:4', 'max:25'],
-            'email'    => ['required', 'email']
-        ];
-    }
-
-    public function messages() {
-        return [
-
-            'name.required'=>'Name field is required',
-            'name.min'=>'Name min long is 4',
-            'name.max'=>'Name max long is 25',
-
-            'email.required'=>'email field is required'
-
+            'name'       => 'required|min:4|max:25',
+            'email'      => 'required|email|unique:users,email',
+            'role_id'    => 'required',
+            'is_blocked'    => 'required',
         ];
     }
 }
