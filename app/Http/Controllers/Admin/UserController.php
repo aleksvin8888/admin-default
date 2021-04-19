@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\createUserRequest;
+use App\Http\Requests\Admin\createUserRequest;
+use App\Http\Requests\Admin\updateUserRequest;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+//use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -14,7 +20,7 @@ class UserController extends MainController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function index()
     {
@@ -26,7 +32,7 @@ class UserController extends MainController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
@@ -36,15 +42,15 @@ class UserController extends MainController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param createUserRequest $request
+     * @return RedirectResponse
      */
-    public function store(createUserRequest  $request)
+    public function store(createUserRequest $request)
     {
         $slug = Str::slug($request->email);
-        $hashpassword = Hash::make($request->password);
+        $hashPassword = Hash::make($request->password);
 
-        $request['password'] = $hashpassword;
+        $request['password'] = $hashPassword;
         $request['slug_name'] = $slug;
 
         User::create($request->only(['name', 'email', 'password', 'slug_name']));
@@ -55,8 +61,8 @@ class UserController extends MainController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @param User $user
+     * @return Application|Factory|View|Response
      */
     public function show(User $user)
     {
@@ -66,8 +72,8 @@ class UserController extends MainController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @param User $user
+     * @return Application|Factory|View|Response
      */
     public function edit(User $user)
     {
@@ -78,16 +84,16 @@ class UserController extends MainController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  updateUserRequest  $request
+     * @param User $user
+     * @return RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(updateUserRequest $request, User $user)
     {
-        $request->validate([
-            'name'       => 'required',
-            'role_id'    => 'required',
-        ]);
+//        $request->validate([
+//            'name'       => 'required',
+//            'role_id'    => 'required',
+//        ]);
 
         $user->update($request->all());
 
@@ -98,8 +104,8 @@ class UserController extends MainController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @param User $user
+     * @return RedirectResponse|Response
      */
     public function destroy(User $user)
     {

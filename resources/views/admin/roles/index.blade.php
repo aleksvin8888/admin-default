@@ -47,22 +47,23 @@
                             @csrf
                             @method('DELETE')
 
-                            <button type="button" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
+
+                            <button  class="viewPopLink" type="button" style="border: none; background-color:transparent;"
+                                      data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                             </button>
-
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel" style="color:black">Delete confirmation</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel" style="color:#000000">Delete confirmation</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body" style="color:black">
-                                            Удаляем?
+                                            Удаляем? id  {{ $role->id }}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,4 +79,7 @@
         </table>
         <br>
     </div>
+
+
+
 @endsection
