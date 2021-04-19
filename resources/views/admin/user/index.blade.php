@@ -25,38 +25,42 @@
         <tr>
             <th>Id</th>
             <th>User Name</th>
+            <th>User Email </th>
             <th>User Role</th>
             <th>Date Created</th>
+            <th>Blocked</th>
             <th>Actions</th>
         </tr>
         @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
                 <td>{{ $user->role->title }}</td>
                 <td>{{ $user->created_at }}</td>
+                <td>
+                    @if($user->is_blocked == 0)
+                        <p>NO</p>
+                    @else
+                        <p>YS</p>
+                    @endif
+                </td>
                 <td>
                     <form action="{{ route('users.destroy', $user) }}" method="POST">
 
                         <a href="{{ route('users.show', $user) }}" title="show">
-                            <i class="fas fa-eye text-success  fa-lg"></i>
+                            <i class="fas fa-eye text-success  fa-lg ml-2"></i>
                         </a>
 
                         <a href="{{ route('users.edit', $user) }}">
-                            <i class="fas fa-edit  fa-lg"></i>
+                            <i class="fas fa-edit  fa-lg ml-2"></i>
                         </a>
 
                         @csrf
                         @method('DELETE')
 
-                    <!-- Button trigger modal -->
-{{--                        <button type="button" title="delete" style="border: none; background-color:transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal">--}}
-{{--                            <i class="fas fa-trash fa-lg text-danger"></i>--}}
-{{--                        </button>--}}
-
-
-                        <button type="button" class="btn btn-primary" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
-                            <i class="fas fa-trash fa-lg text-danger"></i>
+                        <button type="button" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                         </button>
 
                         <!-- Modal -->
@@ -79,7 +83,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </td>
             </tr>

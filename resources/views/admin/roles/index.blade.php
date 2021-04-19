@@ -37,34 +37,24 @@
                         <form action="{{ route('roles.destroy', $role) }}" method="POST">
 
                             <a href="{{ route('roles.show', $role) }}" title="show">
-                                <i class="fas fa-eye text-success  fa-lg"></i>
+                                <i class="fas fa-eye text-success  fa-lg ml-2"></i>
                             </a>
 
                             <a href="{{ route('roles.edit', $role) }}">
-                                <i class="fas fa-edit  fa-lg"></i>
+                                <i class="fas fa-edit  fa-lg ml-2"></i>
                             </a>
 
                             @csrf
                             @method('DELETE')
 
                             <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                                <i class="fas fa-trash fa-lg text-danger"></i>
+                                <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                             </button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </table>
-
         <br>
-{{--        <div class="row justify-content-center">--}}
-{{--            <div class="col-md-12">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-body">--}}
-{{--                        {{ $role->links() }}--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
 @endsection
