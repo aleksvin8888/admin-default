@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\createRolesRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createRolesRequest $request)
     {
         Role::create($request->only(['title', 'description']));
 
@@ -72,13 +73,8 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(createRolesRequest $request, Role $role)
     {
-        $request->validate([
-            'title'       => 'required',
-            'description'    => 'required',
-        ]);
-
         $role->update($request->all());
 
         return redirect()->route('roles.index')
