@@ -79,7 +79,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body" style="color:black">
-                                        Удаляем?
+                                        Удаляем?  Id  -  {{ $user->id }}
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
