@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/home', [HomeController::class, 'home'])->name('main')->middleware('verified');
 
 Auth::routes(['verify' => true]);
 
