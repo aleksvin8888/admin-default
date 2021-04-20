@@ -4,16 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\createRolesRequest;
-use App\Http\Requests\Admin\editRolesRequest;
+use App\Http\Requests\Admin\updateRolesRequest;
 use App\Models\Role;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function index()
     {
@@ -25,7 +30,7 @@ class RolesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
@@ -35,8 +40,8 @@ class RolesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param createRolesRequest $request
+     * @return RedirectResponse
      */
     public function store(createRolesRequest $request)
     {
@@ -48,8 +53,8 @@ class RolesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @param Role $role
+     * @return Application|Factory|View|Response
      */
     public function show(Role $role)
     {
@@ -59,8 +64,8 @@ class RolesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @param Role $role
+     * @return Application|Factory|View|Response
      */
     public function edit(Role $role)
     {
@@ -70,11 +75,11 @@ class RolesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @param updateRolesRequest $request
+     * @param Role $role
+     * @return RedirectResponse|Response
      */
-    public function update(editRolesRequest $request, Role $role)
+    public function update(updateRolesRequest $request, Role $role)
     {
         $role->update($request->all());
 
@@ -85,13 +90,12 @@ class RolesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Role  $role
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @param $id
+     * @return RedirectResponse|Response
      */
     public function destroy($id)
     {
-        $role=Role::find($id);
-        $role->delete();
+        Role::find($id)->delete();
 
         return redirect()->route('roles.index')
             ->with('success', 'Role deleted successfully');
