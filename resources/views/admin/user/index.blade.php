@@ -51,8 +51,8 @@
                     @endif
                 </td>
                 <td>
-                    <form action="{{ route('users.destroy', $user) }}" method="POST">
-
+{{--                    <form action="{{ route('users.destroy', $user) }}" method="POST">--}}
+{{--                        @csrf--}}
                         <a href="{{ route('users.show', $user) }}" title="show">
                             <i class="fas fa-eye text-success  fa-lg ml-2"></i>
                         </a>
@@ -60,35 +60,14 @@
                         <a href="{{ route('users.edit', $user) }}">
                             <i class="fas fa-edit  fa-lg ml-2"></i>
                         </a>
+{{--                    </form>--}}
 
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="button" style="border: none; background-color:transparent;" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" style="border: none; background-color:transparent;" data-userid="{{ $user->id }}" data-toggle="modal" data-target="#delete" id="deleteModal" onclick="handleDelete({{ $user->id }})">
                             <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                         </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel" style="color:black">Delete confirmation</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body" style="color:black">
-                                        Удаляем?  Id  -  {{ $user->id }}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+
+
                 </td>
             </tr>
         @endforeach
@@ -105,4 +84,44 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="" method="POST" id="deleteUserForm">
+            {{ method_field('DELETE') }}
+            {{ csrf_field()}}
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="deleteModalLabel" style="color:black">Delete user</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body" style="color:black">
+                   <p class="text-center">Are you sure you want to delete this user?</p>
+
+               </div>
+
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                   <button type="submit" class="btn btn-danger">Delete</button>
+               </div>
+           </div>
+       </form>
+    </div>
+</div>
+@endsection
+@section('scripts')
+    <script>
+        function handleDelete(id) {
+
+            var form = document.getElementById('deleteUserForm');
+            form.action='users/' + id;
+
+            console.log('deleting.', form);
+            $('#deleteModal').modal('show')
+        }
+
+    </script>
 @endsection
