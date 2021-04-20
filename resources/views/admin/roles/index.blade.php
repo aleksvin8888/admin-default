@@ -34,7 +34,7 @@
                     <td>{{ $role->title }}</td>
                     <td>{{ $role->description }}</td>
                     <td>
-                        <form action="{{ route('roles.destroy', $role) }}" method="POST">
+{{--                        <form action="{{ route('roles.destroy', $role) }}" method="POST">--}}
 
                             <a href="{{ route('roles.show', $role) }}" title="show">
                                 <i class="fas fa-eye text-success  fa-lg ml-2"></i>
@@ -44,42 +44,60 @@
                                 <i class="fas fa-edit  fa-lg ml-2"></i>
                             </a>
 
-                            @csrf
-                            @method('DELETE')
+{{--                            @csrf--}}
+{{--                            @method('DELETE')--}}
 
 
                             <button  class="viewPopLink" type="button" style="border: none; background-color:transparent;"
-                                      data-toggle="modal" data-target="#exampleModal">
+                                     data-userid="{{ $role->id }}" data-toggle="modal" data-target="#delete" id="deleteModal" onclick="handleDelete({{ $role->id }})">
                                 <i class="fas fa-trash fa-lg ml-1 text-danger"></i>
                             </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel" style="color:#000000">Delete confirmation</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body" style="color:black">
-                                            Удаляем? id  {{ $role->id }}
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+{{--                       --}}
+{{--                        </form>--}}
                     </td>
                 </tr>
             @endforeach
         </table>
         <br>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="" method="POST" id="deleteRoleForm">
+                {{ method_field('DELETE') }}
+                {{ csrf_field()}}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel" style="color:black">Delete role</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black">
+                        <p class="text-center">Are you sure you want to delete this role?</p>
 
+                    </div>
 
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
+@section('scripts')
+    <script>
+        function handleDelete(id) {
+
+            var form = document.getElementById('deleteRoleForm');
+            form.action='roles/' + id;
+
+            console.log('deleting.', form);
+            $('#deleteModal').modal('show')
+        }
+
+    </script>
 @endsection

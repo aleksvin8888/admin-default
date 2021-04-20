@@ -10,7 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -90,10 +90,6 @@ class UserController extends MainController
      */
     public function update(updateUserRequest $request, User $user)
     {
-//        $request->validate([
-//            'name'       => 'required',
-//            'role_id'    => 'required',
-//        ]);
 
         $user->update($request->all());
 
@@ -107,11 +103,11 @@ class UserController extends MainController
      * @param User $user
      * @return RedirectResponse|Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
 
-        return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully');
+       $user=User::find($id);
+       $user->delete();
+       return redirect(route('users.index'))->with('success', 'User deleted successfully');
     }
 }
