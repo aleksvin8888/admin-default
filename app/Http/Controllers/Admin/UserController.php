@@ -10,7 +10,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -55,7 +54,7 @@ class UserController extends MainController
 
         User::create($request->only(['name', 'email', 'password', 'slug_name']));
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User added successfully');
     }
 
     /**
@@ -100,14 +99,14 @@ class UserController extends MainController
     /**
      * Remove the specified resource from storage.
      *
-     * @param User $user
+     * @param $id
      * @return RedirectResponse|Response
      */
     public function destroy($id)
     {
 
-       $user=User::find($id);
-       $user->delete();
+       User::find($id)->delete();
+
        return redirect(route('users.index'))->with('success', 'User deleted successfully');
     }
 }
