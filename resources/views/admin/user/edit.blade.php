@@ -7,7 +7,6 @@
             <h2 class="ml-3">Edit User</h2>
         </div>
 
-        @include('admin.includes.messages')
 
         <form action="{{ route('users.update', $user) }}" method="POST">
             @csrf
@@ -19,6 +18,9 @@
                     <div class="form-group">
                         <strong>Name:</strong>
                         <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control" placeholder="Name">
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
@@ -26,6 +28,9 @@
                     <div class="form-group">
                         <strong>eMail:</strong>
                         <input type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control" placeholder="eMail">
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
@@ -46,7 +51,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <label for="is_blocked"><strong>Blocked:</strong></label>
@@ -64,7 +68,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group col-lg-3">
                     <div class="float-right">
                         <a class="btn btn-info" href="{{ route('users.index', $user) }}" title="Go back"> <i class="fas fa-backward "></i> </a>
@@ -74,7 +77,6 @@
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
 @endsection
