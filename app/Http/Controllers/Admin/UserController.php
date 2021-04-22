@@ -41,10 +41,10 @@ class UserController extends MainController
     /**
      * Store a newly created resource in storage.
      *
-     * @param createUserRequest $request
+     * @param CreateUserRequest $request
      * @return RedirectResponse
      */
-    public function store(createUserRequest $request)
+    public function store(CreateUserRequest $request)
     {
         $slug = Str::slug($request->email);
         $hashPassword = Hash::make($request->password);
@@ -83,11 +83,11 @@ class UserController extends MainController
     /**
      * Update the specified resource in storage.
      *
-     * @param  updateUserRequest  $request
+     * @param  UpdateUserRequest  $request
      * @param User $user
      * @return RedirectResponse
      */
-    public function update(updateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
 
         $user->update($request->all());
