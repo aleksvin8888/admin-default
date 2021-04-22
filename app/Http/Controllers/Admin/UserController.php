@@ -99,14 +99,29 @@ class UserController extends MainController
     /**
      * Remove the specified resource from storage.
      *
-     * @param $id
+     * @param $user
      * @return RedirectResponse|Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
 
-       User::find($id)->delete();
+       $user ->delete();
 
        return redirect(route('users.index'))->with('success', 'User deleted successfully');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @return Application|Factory|View|RedirectResponse|Response
+     */
+    public function delete($id)
+    {
+
+        $user = User::find($id);
+
+        return view('admin.user.delete', compact('user'));
     }
 }
