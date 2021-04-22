@@ -17,12 +17,6 @@
                 Users
             </a>
         </li>
-        <li>
-            <a href="{{ route('roles.index') }}" class="nav-link {{ Request::path()=='admin/roles' ? 'active' : 'text-white'}}">
-               Roles
-            </a>
-        </li>
-
     </ul>
     <hr>
 
