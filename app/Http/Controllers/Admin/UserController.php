@@ -54,7 +54,7 @@ class UserController extends MainController
 
         User::create($request->only(['name', 'email', 'password', 'slug_name']));
 
-        return redirect()->route('users.index')->with('success', 'User added successfully');
+        return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
     }
 
     /**
@@ -93,7 +93,7 @@ class UserController extends MainController
         $user->update($request->all());
 
         return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+            ->with('success', 'Данные пользователя успешно изменены');
     }
 
     /**
@@ -107,7 +107,7 @@ class UserController extends MainController
 
        $user ->delete();
 
-       return redirect(route('users.index'))->with('success', 'User deleted successfully');
+       return redirect(route('users.index'))->with('success', 'Пользователь удален');
     }
 
 
