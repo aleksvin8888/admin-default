@@ -35,7 +35,6 @@
                         <select name="role_id"
                                 id="role_id"
                                 class="form-control"
-                                placeholder="Выберите роль"
                                 required>
                             @foreach($roleList as $roleOption)
                                 <option value="{{ $roleOption->id }}"
