@@ -10,8 +10,7 @@
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"  data-dismiss="modal" >Омена</button>
-        <button type="submit" class="btn btn-danger">Пдтвердить</button>
+        <button type="button" class="btn btn-secondary"  data-dismiss="modal" >Отмена</button>
+        <button type="submit" class="btn btn-danger">Да, удалить!</button>
     </div>
 </form>
-
