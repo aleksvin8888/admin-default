@@ -89,8 +89,7 @@ class UserController extends MainController
      */
     public function update(updateUserRequest $request, User $user)
     {
-
-        $user->update($request->all());
+        $user->update($request->input());
 
         return redirect()->route('users.index')
             ->with('success', 'User updated successfully');
