@@ -14,7 +14,7 @@
         <div class="form-group col-lg-12 mb-2">
             <label for="inputEmail" class="col-xs-2 control-label">Name:</label>
             <div class="col-xs-8">
-                <input type="text" name="name" class="form-control" id="inputEmail" placeholder="Enter name"  value="{{old('name')}}">
+                <input type="text" name="name" class="form-control" id="inputName" placeholder="Enter name"  value="{{old('name')}}">
                 @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
