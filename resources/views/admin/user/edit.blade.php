@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
-@section('title') Edit {{ $user->name }}
+@section('title') Редактирование данных {{ $user->name }}
 @endsection
 @section('mainContent')
     <div class="container col-lg-10 mt-22">
         <div class="bg-info text-white" id="breadcrumb-user" style="height: 45px">
-            <h2 class="ml-3">Edit User</h2>
+            <h2 class="ml-3">Редактирование данных пользователя</h2>
         </div>
 
 
@@ -15,8 +15,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Name:</strong>
-                        <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control" placeholder="Name">
+                        <strong>Имя:</strong>
+                        <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control" placeholder="Имя">
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -25,8 +25,8 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>eMail:</strong>
-                        <input type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control" placeholder="eMail">
+                        <strong>Элктронная почта:</strong>
+                        <input type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control" placeholder="Элктронная почта">
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -35,7 +35,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <label for="role_id"><strong>Role:</strong></label>
+                        <label for="role_id"><strong>Роль:</strong></label>
                         <select name="role_id"
                                 id="role_id"
                                 class="form-control"
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <label for="is_blocked"><strong>Blocked:</strong></label>
+                        <label for="is_blocked"><strong>Блокировка:</strong></label>
                         <select name="is_blocked"
                                 id="is_blocked"
                                 class="form-control"
@@ -72,7 +72,7 @@
                         <a class="btn btn-info" href="{{ route('users.index', $user) }}" title="Go back"> <i class="fas fa-backward "></i> </a>
                     </div>
                     <div class="col-xs-offset-2 col-xs-8">
-                        <button type="submit" class="btn btn-info">Update</button>
+                        <button type="submit" class="btn btn-info">Обновить</button>
                     </div>
                 </div>
             </div>
