@@ -35,8 +35,8 @@
                         <select name="role_id"
                                 id="role_id"
                                 class="form-control"
-                                placeholder="Выберите роль"
                                 required>
+                            <option value="null">Без категории</option>
                             @foreach($roleList as $roleOption)
                                 <option value="{{ $roleOption->id }}"
                                         @if($roleOption->id == $user->role_id) selected @endif>
