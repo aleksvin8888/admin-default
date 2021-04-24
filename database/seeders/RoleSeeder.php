@@ -21,7 +21,6 @@ class RoleSeeder extends Seeder
         for ($i = 0; $i <= 2; $i++) {
             $roles[] = [
                 'title'           => $availableGroups[$i],
-                'description'     => Str::random('100'),
             ];
         }
 

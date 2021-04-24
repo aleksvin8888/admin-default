@@ -26,11 +26,8 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-//            'email_verified_at' => now(),
             'password'          => Hash::make('11111111'), // password
             'role_id'           => rand(1, 3),
-
-
             'soft_deleted'      => rand(0,1),
             'slug_name'         => Str::random(10),
             'is_blocked'        => rand(0,1),
@@ -38,17 +35,4 @@ class UserFactory extends Factory
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-//    public function unverified()
-//    {
-//        return $this->state(function (array $attributes) {
-//            return [
-//                'email_verified_at' => null,
-//            ];
-//        });
-//    }
 }
