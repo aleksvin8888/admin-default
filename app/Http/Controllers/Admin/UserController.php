@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 
 class UserController extends MainController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +36,8 @@ class UserController extends MainController
      */
     public function create()
     {
-        return view('admin.user.create');
+        $roleList = Role::all();
+        return view('admin.user.create', compact('roleList'));
     }
 
     /**
@@ -52,7 +54,8 @@ class UserController extends MainController
         $request['password'] = $hashPassword;
         $request['slug_name'] = $slug;
 
-        User::create($request->only(['name', 'email', 'password', 'slug_name']));
+
+        User::create($request->only(['name', 'email', 'role_id','password', 'slug_name']));
 
         return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
     }
@@ -90,7 +93,7 @@ class UserController extends MainController
     public function update(UpdateUserRequest $request, User $user)
     {
 
-        $user->update($request->all());
+        $user->update($request->validated());
 
         return redirect()->route('users.index')
             ->with('success', 'Данные пользователя успешно изменены');

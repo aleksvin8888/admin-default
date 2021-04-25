@@ -5,27 +5,24 @@
     <a href="{{ route('main') }}" class="d-flex align-items-center mt-3 mb-3 mb-md-2 me-md-2 text-white text-decoration-none">
         <h2>Админ-панель</h2>
     </a>
+
+
     <div class="dropdown ml-3 mb-3">
-
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-
-            <small>{{ Auth::user()->name }}</small>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-
-            <li>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-        </ul>
+        <button  class=" btn btn-outline-secondary d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+           id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ Auth::user()->name }}
+        </button>
+         <div class="dropdown-menu p-4 text-muted m-0">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <li>
+                    <input type="hidden" class="form-control" id="exampleDropdownFormEmail1" placeholder="">
+                </li>
+                <button type="submit" class="btn btn-outline-secondary"> выход </button>
+            </form>
+        </div>
     </div>
+
     <hr>
     <ul class="nav nav-pills flex-column mb-0" style="width: auto;">
         <li class="nav-item">
@@ -41,3 +38,8 @@
     </ul>
 
 </div>
+<script>
+    $('.dropdown').click(function(){
+        $('.dropdown-menu').toggleClass('show');
+    });
+</script>
