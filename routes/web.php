@@ -15,10 +15,3 @@ Route::middleware(['auth', 'verified', 'unblocked'])->group(function () {
 });
 
 Auth::routes(['verify' => true]);
-
-Route::middleware(['auth', 'verified', 'admin', 'unblocked'])->prefix('admin')->group(function () {
-    Route::get('/', [MainController::class, 'dashboard'])->name('main');
-    Route::get('users/delete/{id}', [UserController::class, 'delete'])->name('delete');
-    Route::resource('users', UserController::class);
-
-});
