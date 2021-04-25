@@ -1,7 +1,8 @@
 <?php
 
-
 use App\Http\Controllers\Admin\MainController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
 Route::middleware(['auth', 'verified', 'admin', 'unblocked'])->prefix('admin')->group(function () {
@@ -10,4 +11,3 @@ Route::middleware(['auth', 'verified', 'admin', 'unblocked'])->prefix('admin')->
     Route::resource('users', UserController::class);
 
 });
-
