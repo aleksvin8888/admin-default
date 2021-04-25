@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $roles = [];
-        $availableGroups = ['admin', 'user1', 'user2'];
+        $availableGroups = ['admin', 'userRole1', 'userRole3'];
 
         for ($i = 0; $i <= 2; $i++) {
             $roles[] = [
