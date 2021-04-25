@@ -84,7 +84,7 @@
 
 
 <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="justify-content-center">Удаление данных пользователя</h4>
@@ -102,7 +102,6 @@
 </div>
 
 
-
 <script>
 
     $(document).on('click', '#smallButton', function(event) {
@@ -117,17 +116,14 @@
             success: function(result) {
                 $('#smallModal').modal("show");
                 $('#smallBody').html(result).show();
-
             }
             , complete: function() {
                 $('#loader').hide();
-                $('.modal-backdrop').hide();
             }
             , error: function(jqXHR, testStatus, error) {
                 console.log(error);
                 alert("Page " + href + " cannot open. Error:" + error);
                 $('#loader').hide();
-                $('.modal-backdrop').remove();
             }
             , timeout: 8000
         })
