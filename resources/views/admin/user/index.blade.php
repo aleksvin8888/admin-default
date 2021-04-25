@@ -62,7 +62,7 @@
 
                     <a data-toggle="modal" id="smallButton" data-target="#smallModal"
                        data-attr="{{ route ('delete', $user->id) }}" data-id="{{$user->id}}" title="Delete User">
-                        <i class="fas fa-trash text-danger  fa-lg"></i>
+                        <i class="fas fa-trash text-danger  fa-lg ml-2"></i>
                     </a>
 
                 </td>
