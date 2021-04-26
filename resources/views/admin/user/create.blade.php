@@ -37,6 +37,7 @@
                         class="form-control"
                         placeholder="Выберите роль"
                         required>
+{{--                    <option value="Выберите роль" disabled></option>--}}
                     @foreach($roleList as $roleOption)
                         <option value="{{ $roleOption->id }}">
                             {{ $roleOption->id }}. {{ $roleOption->title }}
