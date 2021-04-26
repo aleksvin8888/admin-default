@@ -7,21 +7,24 @@
     </a>
 
 
-    <div class="dropdown ml-3 mb-3">
-        <button  class=" btn btn-outline-secondary d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-           id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+    <li class="nav dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }}
-        </button>
-         <div class="dropdown-menu p-4 text-muted m-0">
-            <form action="{{ route('logout') }}" method="POST">
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
-                <li>
-                    <input type="hidden" class="form-control" id="exampleDropdownFormEmail1" placeholder="">
-                </li>
-                <button type="submit" class="btn btn-outline-secondary"> выход </button>
             </form>
         </div>
-    </div>
+    </li>
 
     <hr>
     <ul class="nav nav-pills flex-column mb-0" style="width: auto;">
@@ -38,8 +41,4 @@
     </ul>
 
 </div>
-<script>
-    $('.dropdown').click(function(){
-        $('.dropdown-menu').toggleClass('show');
-    });
-</script>
+

@@ -1,3 +1,5 @@
+
+// script from modal delet-user
 $(document).on('click', '#smallButton', function(event) {
     event.preventDefault();
     let href = $(this).attr('data-attr');
