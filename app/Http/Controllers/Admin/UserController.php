@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\createUserRequest;
-use App\Http\Requests\Admin\updateUserRequest;
+use App\Http\Requests\Admin\CreateUserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 
 class UserController extends MainController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -35,16 +36,17 @@ class UserController extends MainController
      */
     public function create()
     {
-        return view('admin.user.create');
+        $roleList = Role::all();
+        return view('admin.user.create', compact('roleList'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param createUserRequest $request
+     * @param CreateUserRequest $request
      * @return RedirectResponse
      */
-    public function store(createUserRequest $request)
+    public function store(CreateUserRequest $request)
     {
         $slug = Str::slug($request->email);
         $hashPassword = Hash::make($request->password);
@@ -52,9 +54,10 @@ class UserController extends MainController
         $request['password'] = $hashPassword;
         $request['slug_name'] = $slug;
 
-        User::create($request->only(['name', 'email', 'password', 'slug_name']));
 
-        return redirect()->route('users.index')->with('success', 'User added successfully');
+        User::create($request->only(['name', 'email', 'role_id','password', 'slug_name']));
+
+        return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
     }
 
     /**
@@ -83,29 +86,45 @@ class UserController extends MainController
     /**
      * Update the specified resource in storage.
      *
-     * @param  updateUserRequest  $request
+     * @param  UpdateUserRequest  $request
      * @param User $user
      * @return RedirectResponse
      */
-    public function update(updateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->input());
+
+        $user->update($request->validated());
 
         return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+            ->with('success', 'Данные пользователя успешно изменены');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param $id
+     * @param $user
      * @return RedirectResponse|Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
 
-       User::find($id)->delete();
+       $user ->delete();
 
-       return redirect(route('users.index'))->with('success', 'User deleted successfully');
+       return redirect(route('users.index'))->with('success', 'Пользователь удален');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @return Application|Factory|View|RedirectResponse|Response
+     */
+    public function delete($id)
+    {
+
+        $user = User::find($id);
+
+        return view('admin.user.delete', compact('user'));
     }
 }
