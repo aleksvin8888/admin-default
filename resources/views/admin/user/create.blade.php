@@ -5,7 +5,7 @@
 @section('mainContent')
 
 <div class="container-fluid col-lg-10 mt-2">
-    <div class="bg-info text-white" id="breadcrumb-user" style="height: 45px">
+    <div class="bg-info text-white" id="breadcrumb-user">
         <h2 class="ml-3">Новый пользователь</h2>
     </div>
 
