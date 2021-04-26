@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 
 class UserController extends MainController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +36,8 @@ class UserController extends MainController
      */
     public function create()
     {
-        return view('admin.user.create');
+        $roleList = Role::all();
+        return view('admin.user.create', compact('roleList'));
     }
 
     /**
@@ -46,13 +48,12 @@ class UserController extends MainController
      */
     public function store(CreateUserRequest $request)
     {
-        $slug = Str::slug($request->email);
-        $hashPassword = Hash::make($request->password);
+        $dataToStore = $request->except('_token');
 
-        $request['password'] = $hashPassword;
-        $request['slug_name'] = $slug;
+        $dataToStore['password'] = Hash::make($request->password);
+        $dataToStore['slug_name'] = Str::slug($request->email);
 
-        User::create($request->only(['name', 'email', 'password', 'slug_name']));
+        User::create($dataToStore);
 
         return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
     }
@@ -89,8 +90,10 @@ class UserController extends MainController
      */
     public function update(UpdateUserRequest $request, User $user)
     {
+        $dataToUpdate = $request->validated();
 
-        $user->update($request->all());
+        $dataToUpdate['slug_name'] = Str::slug($request->email);
+        $user->update($dataToUpdate);
 
         return redirect()->route('users.index')
             ->with('success', 'Данные пользователя успешно изменены');
@@ -104,7 +107,6 @@ class UserController extends MainController
      */
     public function destroy(User $user)
     {
-
        $user ->delete();
 
        return redirect(route('users.index'))->with('success', 'Пользователь удален');
@@ -119,7 +121,6 @@ class UserController extends MainController
      */
     public function delete($id)
     {
-
         $user = User::find($id);
 
         return view('admin.user.delete', compact('user'));

@@ -5,27 +5,27 @@
     <a href="{{ route('main') }}" class="d-flex align-items-center mt-3 mb-3 mb-md-2 me-md-2 text-white text-decoration-none">
         <h2>Админ-панель</h2>
     </a>
-    <div class="dropdown ml-3 mb-3">
 
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
 
-            <small>{{ Auth::user()->name }}</small>
+    <li class="nav dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
-            <li>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
+                {{ __('Logout') }}
+            </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-        </ul>
-    </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
+    </li>
+
     <hr>
     <ul class="nav nav-pills flex-column mb-0" style="width: auto;">
         <li class="nav-item">
@@ -41,3 +41,4 @@
     </ul>
 
 </div>
+
