@@ -1,51 +1,44 @@
 
 
-<div class="d-flex flex-column text-white bg-dark col-lg-2 p-0">
+<div class="d-flex flex-column text-white bg-dark col-lg-2 p-0" style="min-height: 100vh;">
 
     <a href="{{ route('main') }}" class="d-flex align-items-center mt-3 mb-3 mb-md-2 me-md-2 text-white text-decoration-none">
-        <h2>Admin-defult</h2>
+        <h2>Админ-панель</h2>
     </a>
+
+
+    <li class="nav dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
+    </li>
+
     <hr>
     <ul class="nav nav-pills flex-column mb-0" style="width: auto;">
         <li class="nav-item">
             <a href="{{ route('main') }}" class="nav-link {{ Request::path()=='admin' ? 'active' : 'text-white'}}">
-               Home
+               Главная
             </a>
         </li>
         <li>
             <a href="{{ route('users.index') }}" class="nav-link {{ Request::path()=='admin/users' ? 'active' : 'text-white'}}">
-                Users
+                Пользователи
             </a>
         </li>
-        <li>
-            <a href="{{ route('roles.index') }}" class="nav-link {{ Request::path()=='admin/roles' ? 'active' : 'text-white'}}">
-               Roles
-            </a>
-        </li>
-
     </ul>
-    <hr>
 
-
-    <div class="dropdown ml-3 mb-3">
-
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-
-            <small>{{ Auth::user()->name }}</small>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-
-            <li>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-        </ul>
-    </div>
 </div>
+

@@ -27,7 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.dashboard');
+        if(\Auth::user()->role_id=='1'){
+            return view('admin.pages.dashboard');
+        }
+        return view('home');
     }
 
     /**
