@@ -1,9 +1,10 @@
 @extends('admin.layouts.app')
-@section('title') Редактирование данных {{ $user->name }}
-@endsection
+
+@section('title', 'Редактирование данных ' . $user->name)
+
 @section('mainContent')
-    <div class="container col-lg-10 mt-22">
-        <div class="bg-info text-white" id="breadcrumb-user" style="height: 45px">
+    <div class="container col-lg-10 mt-2">
+        <div class="bg-info text-white" id="breadcrumb-user">
             <h2 class="ml-3">Редактирование данных пользователя</h2>
         </div>
 
@@ -43,7 +44,7 @@
                             @foreach($roleList as $roleOption)
                                 <option value="{{ $roleOption->id }}"
                                         @if($roleOption->id == $user->role_id) selected @endif>
-                                    {{ $roleOption->id }}. {{ $roleOption->title }}
+                                    {{ $roleOption->title }}
                                 </option>
                             @endforeach
                         </select>

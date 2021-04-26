@@ -1,12 +1,10 @@
 @extends('admin.layouts.app')
-@section('title')
-   Данные пользователя {{ $user->name }}
-@endsection
+@section('title',  'Данные пользователя ' . $user->name )
 
 @section('mainContent')
-    <div class="container mt-2">
+    <div class="container mt-2 col-md-10">
         <div class="row">
-            <div class="col-lg-12 margin-tb">
+            <div class="col-lg-10 margin-tb">
                 <div class="pull-left">
                     <h2> Пользователь #{{ $user->id }} </h2>
                 </div>
@@ -17,7 +15,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-md-12">
                 <div class="form-group">
                     <strong>Имя:</strong>
                     {{ $user->name }}
@@ -27,6 +25,18 @@
                 <div class="form-group">
                     <strong>Электронная почта:</strong>
                     {{ $user->email }}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Роль:</strong>
+                    {{ $user->role->title }}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Slug:</strong>
+                    {{ $user->slug_name }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
