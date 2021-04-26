@@ -44,7 +44,7 @@
                             @foreach($roleList as $roleOption)
                                 <option value="{{ $roleOption->id }}"
                                         @if($roleOption->id == $user->role_id) selected @endif>
-                                    {{ $roleOption->id }}. {{ $roleOption->title }}
+                                    {{ $roleOption->title }}
                                 </option>
                             @endforeach
                         </select>

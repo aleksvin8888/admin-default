@@ -32,17 +32,17 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="role_id"><strong>Роль:</strong></label>
-                <select name="role_id"
-                        id="role_id"
-                        class="form-control"
-                        placeholder="Выберите роль"
-                        required>
+                <select name="role_id" id="role_id" class="form-control">
+                    <option value="">Выберите роль</option>
                     @foreach($roleList as $roleOption)
                         <option value="{{ $roleOption->id }}">
-                            {{ $roleOption->id }}. {{ $roleOption->title }}
+                            {{ $roleOption->title }}
                         </option>
                     @endforeach
                 </select>
+                @error('role_id')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="form-group col-lg-12 mb-2">
