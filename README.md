@@ -21,7 +21,9 @@ Getting Started:
 6. Generate APP_KEY - php artisan key: generate
 7. Run migration and seed 
     ######php artisan migrate --seed
-8. For email verification to work correctly you will need to update your email variables in .env file. If you want to test email verification You can use a free mail server [mailtrap.io](https://mailtrap.io/)
+8. To get back access to registration form remove <span style="color:blue">**showRegistrationForm()**</span> overriding method in <span style="color:blue">**RegisterController.php**</span>
+
+9. For email verification to work correctly you will need to update your email variables in .env file. If you want to test email verification You can use a free mail server [mailtrap.io](https://mailtrap.io/)
 
 ![alt text](public/img/mailtrap-settings_1.png "Описание будет тут")
 ###then
