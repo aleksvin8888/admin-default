@@ -29,8 +29,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com' ,
                 'password'          => Hash::make('password'), // password
                 'role_id'           => 1,
-                'soft_deleted'      => rand(0,1),
-                'slug_name'         => Str::random(10),
+                'soft_deleted'      => 0,
                 'is_blocked'        => 0,
             ],
         ];
