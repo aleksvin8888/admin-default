@@ -24,9 +24,9 @@ class UserController extends MainController
      */
     public function index()
     {
-            $users = User::paginate(5);
+        $users = User::paginate(5);
 
-            return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users'));
     }
 
     /**
@@ -48,12 +48,14 @@ class UserController extends MainController
      */
     public function store(CreateUserRequest $request)
     {
-        $dataToStore = $request->except('_token');
+        $dataToStore = $request->validated();
+
 
         $dataToStore['password'] = Hash::make($request->password);
         $dataToStore['slug_name'] = Str::slug($request->email);
 
         User::create($dataToStore);
+
 
         return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
     }
@@ -84,7 +86,7 @@ class UserController extends MainController
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateUserRequest  $request
+     * @param UpdateUserRequest $request
      * @param User $user
      * @return RedirectResponse
      */
@@ -107,9 +109,9 @@ class UserController extends MainController
      */
     public function destroy(User $user)
     {
-       $user ->delete();
+        $user->delete();
 
-       return redirect(route('users.index'))->with('success', 'Пользователь удален');
+        return redirect(route('users.index'))->with('success', 'Пользователь удален');
     }
 
 
