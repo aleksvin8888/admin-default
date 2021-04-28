@@ -51,7 +51,6 @@ class UserController extends MainController
         $dataToStore = $request->except('_token');
 
         $dataToStore['password'] = Hash::make($request->password);
-        $dataToStore['slug_name'] = Str::slug($request->email);
 
         User::create($dataToStore);
 
@@ -92,7 +91,6 @@ class UserController extends MainController
     {
         $dataToUpdate = $request->validated();
 
-        $dataToUpdate['slug_name'] = Str::slug($request->email);
         $user->update($dataToUpdate);
 
         return redirect()->route('users.index')
