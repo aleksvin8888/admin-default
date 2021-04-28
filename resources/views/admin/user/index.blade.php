@@ -62,7 +62,7 @@
 
                     <a data-toggle="modal" id="smallButton" data-target="#smallModal"
                        data-attr="{{ route ('delete', $user->id) }}" data-id="{{$user->id}}" title="Delete User">
-                        <i class="fas fa-trash text-danger  fa-lg"></i>
+                        <i class="fas fa-trash text-danger  fa-lg ml-2"></i>
                     </a>
 
                 </td>
@@ -101,33 +101,5 @@
     </div>
 </div>
 
-
-<script>
-
-    $(document).on('click', '#smallButton', function(event) {
-        event.preventDefault();
-        let href = $(this).attr('data-attr');
-        $.ajax({
-            url: href
-            , beforeSend: function() {
-                $('#loader').show();
-            },
-            // return the result
-            success: function(result) {
-                $('#smallModal').modal("show");
-                $('#smallBody').html(result).show();
-            }
-            , complete: function() {
-                $('#loader').hide();
-            }
-            , error: function(jqXHR, testStatus, error) {
-                console.log(error);
-                alert("Page " + href + " cannot open. Error:" + error);
-                $('#loader').hide();
-            }
-            , timeout: 8000
-        })
-    });
-</script>
 @endsection
 
