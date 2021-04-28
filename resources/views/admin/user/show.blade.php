@@ -9,7 +9,8 @@
                     <h2> Пользователь #{{ $user->id }} </h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('users.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                    <a class="btn btn-primary" href="{{ route('admin.users.index') }}" title="Go back"> <i
+                            class="fas fa-backward "></i> </a>
                 </div>
             </div>
         </div>
@@ -33,12 +34,7 @@
                     {{ $user->role->title }}
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Slug:</strong>
-                    {{ $user->slug_name }}
-                </div>
-            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Блокировка:</strong>
@@ -56,7 +52,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-               <a type="button" class="btn btn-outline-primary" href="{{ route('users.edit', $user->id) }}">Редактировать данные</a>
+                <a type="button" class="btn btn-outline-primary" href="{{ route('admin.users.edit', $user->id) }}">Редактировать
+                    данные</a>
             </div>
         </div>
     </div>

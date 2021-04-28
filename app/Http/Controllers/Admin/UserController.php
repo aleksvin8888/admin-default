@@ -52,12 +52,12 @@ class UserController extends MainController
 
 
         $dataToStore['password'] = Hash::make($request->password);
-        $dataToStore['slug_name'] = Str::slug($request->email);
+
 
         User::create($dataToStore);
 
 
-        return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
+        return redirect()->route('admin.users.index')->with('success', 'Пользователь успешно добавлен');
     }
 
     /**
@@ -94,10 +94,10 @@ class UserController extends MainController
     {
         $dataToUpdate = $request->validated();
 
-        $dataToUpdate['slug_name'] = Str::slug($request->email);
+
         $user->update($dataToUpdate);
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->with('success', 'Данные пользователя успешно изменены');
     }
 
@@ -111,7 +111,7 @@ class UserController extends MainController
     {
         $user->delete();
 
-        return redirect(route('users.index'))->with('success', 'Пользователь удален');
+        return redirect(route('admin.users.index'))->with('success', 'Пользователь удален');
     }
 
 
@@ -121,7 +121,7 @@ class UserController extends MainController
      * @param $id
      * @return Application|Factory|View|RedirectResponse|Response
      */
-    public function delete($id)
+    public function adminUsersModalAjaxDelete($id)
     {
         $user = User::find($id);
 
