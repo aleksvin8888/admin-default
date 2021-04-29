@@ -1,14 +1,12 @@
 @include('admin.includes.header')
-<body>
+<body class="bg-theme bg-theme1">
 
-<div class=" container-fluid">
-    <div class="row">
+
 
         @include('admin.includes.leftSidebar')
+        @include('admin.includes.topNavbar')
         @yield('mainContent')
 
-    </div>
-</div>
 
 </body>
 
