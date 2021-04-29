@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +24,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'role_id',
         'soft_deleted',
-        'slug_name',
         'is_blocked',
     ];
 
@@ -42,11 +43,24 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
-       'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime',
     ];
 
     public function role()
     {
         return $this->belongsTo(Role::class);
-     }
+    }
+
+    public function isAdmin() {
+
+     return $this->role()->where('title', 'admin')->exists();
+    }
+
+    public function unBlocked() {
+
+        if($this['is_blocked']==0) {
+            return true;
+        }
+    }
+
 }
