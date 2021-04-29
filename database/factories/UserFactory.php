@@ -29,7 +29,6 @@ class UserFactory extends Factory
             'password'          => Hash::make('11111111'), // password
             'role_id'           => rand(2, 5),
             'soft_deleted'      => rand(0,1),
-            'slug_name'         => Str::random(10),
             'is_blocked'        => rand(0,1),
 
         ];

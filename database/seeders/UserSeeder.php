@@ -30,7 +30,6 @@ class UserSeeder extends Seeder
                 'password'          => Hash::make('password'), // password
                 'role_id'           => 1,
                 'soft_deleted'      => rand(0,1),
-                'slug_name'         => Str::random(10),
                 'is_blocked'        => 0,
             ],
         ];

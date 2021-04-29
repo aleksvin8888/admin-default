@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('soft_deleted')->nullable();
-            $table->string('slug_name')->nullable();
             $table->rememberToken();
             $table->boolean('is_blocked')->default(0);
             $table->timestamps();

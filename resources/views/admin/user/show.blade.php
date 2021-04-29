@@ -35,12 +35,6 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Slug:</strong>
-                    {{ $user->slug_name }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>Блокировка:</strong>
                     @if($user->is_blocked == 0)
                         Разблокирован

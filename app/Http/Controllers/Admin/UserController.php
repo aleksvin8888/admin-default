@@ -48,12 +48,13 @@ class UserController extends MainController
      */
     public function store(CreateUserRequest $request)
     {
-        $dataToStore = $request->except('_token');
+        $dataToStore = $request->validated();
 
         $dataToStore['password'] = Hash::make($request->password);
-        $dataToStore['slug_name'] = Str::slug($request->email);
 
-        User::create($dataToStore);
+        $user = User::make($dataToStore);
+        $user->role_id = $dataToStore['role_id'];
+        $user->save();
 
         return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
     }
@@ -92,7 +93,7 @@ class UserController extends MainController
     {
         $dataToUpdate = $request->validated();
 
-        $dataToUpdate['slug_name'] = Str::slug($request->email);
+        $user->role_id = $dataToUpdate['role_id'];
         $user->update($dataToUpdate);
 
         return redirect()->route('users.index')
