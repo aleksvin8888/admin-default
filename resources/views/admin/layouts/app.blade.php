@@ -1,11 +1,14 @@
 @include('admin.includes.header')
-<body class="bg-theme bg-theme1">
-
+<body class="sb-nav-fixed">
+        @include('admin.includes.topNavbar')
+        <div id="layoutSidenav">
 
 
         @include('admin.includes.leftSidebar')
-        @include('admin.includes.topNavbar')
+
         @yield('mainContent')
+
+        </div>
 
 
 </body>
