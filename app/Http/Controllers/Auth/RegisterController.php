@@ -71,7 +71,6 @@ class RegisterController extends Controller
     // по умолчанию роль id-1 принадлежыт  админу.
     // отредактировать присвоения  роли пользователю при регистрацыи
             'role_id'=>'2',
-            'slug_name' => Str::slug($data['email']),
             'password' => Hash::make($data['password']),
         ]);
     }
