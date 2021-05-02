@@ -48,12 +48,13 @@ class UserController extends MainController
      */
     public function store(CreateUserRequest $request)
     {
-        $dataToStore = $request->validated();
+        $dataToStore = $request->input();
 
 
         $dataToStore['password'] = Hash::make($request->password);
 
 
+        $dataToStore['role_id']=$request->role_id;
         User::create($dataToStore);
 
 
@@ -93,7 +94,6 @@ class UserController extends MainController
     public function update(UpdateUserRequest $request, User $user)
     {
         $dataToUpdate = $request->validated();
-
 
         $user->update($dataToUpdate);
 

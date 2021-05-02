@@ -1,14 +1,15 @@
 @include('admin.includes.header')
-<body>
+<body class="sb-nav-fixed">
+        @include('admin.includes.topNavbar')
+        <div id="layoutSidenav">
 
-<div class=" container-fluid">
-    <div class="row">
 
         @include('admin.includes.leftSidebar')
+
         @yield('mainContent')
 
-    </div>
-</div>
+        </div>
+
 
 </body>
 
