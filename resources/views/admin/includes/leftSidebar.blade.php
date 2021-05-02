@@ -98,7 +98,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Charts
                 </a>
-                <a class="nav-link" href="{{ route('users.index') }}">
+                <a class="nav-link" href="{{ route('admin.users.index') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Пользователи
                 </a>
