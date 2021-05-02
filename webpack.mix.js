@@ -15,6 +15,6 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
 
-mix.js('resources/js/admin/app.js', 'public/admin/js')
-    .css('resources/css/admin/app.css', 'public/admin/css')
+mix.js('resources/js/admin/app.js', 'public/assets/js')
+    .css('resources/css/admin/app.css', 'public/assets/css')
     .sourceMaps();

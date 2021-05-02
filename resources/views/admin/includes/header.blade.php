@@ -9,7 +9,7 @@
 
     <title>@yield('title')</title>
 
-    <link href="{{ asset('admin/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <!--Font Awesome JS -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,8 +20,7 @@
             integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
     </script>
 
-    <script src="{{ asset('admin/js/app.js') }}" defer></script>
-
+    <script src="{{ asset('assets/js/app.js') }}" defer></script>
 
     @yield('scripts')
 </head>
