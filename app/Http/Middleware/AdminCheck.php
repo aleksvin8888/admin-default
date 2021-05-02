@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Role;
+use Auth;
 use Closure;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
@@ -16,12 +17,12 @@ class AdminCheck
      * @param \Closure $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        if($request->user()->role->title == 'admin') {
+        if(Auth::user() && Auth::user()->isAdmin()) {
             return $next($request);
         }
 
-        return redirect('/home');
+        return redirect()->route('main');
     }
 }

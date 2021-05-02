@@ -16,9 +16,10 @@ class BlockedCheck
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        if ($request->user()->is_blocked =='0') {
+        if (Auth::user() && Auth::user()->unBlocked()) {
+
         return $next($request);
         }
 
