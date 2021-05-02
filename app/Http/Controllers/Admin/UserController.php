@@ -48,14 +48,14 @@ class UserController extends MainController
      */
     public function store(CreateUserRequest $request)
     {
-        $dataToStore = $request->input();
+        $dataToStore = $request->validated();
 
 
         $dataToStore['password'] = Hash::make($request->password);
 
-
-        $dataToStore['role_id']=$request->role_id;
-        User::create($dataToStore);
+        $user = User::make($dataToStore);
+        $user->role_id = $dataToStore['role_id'];
+        $user->save();
 
 
         return redirect()->route('admin.users.index')->with('success', 'Пользователь успешно добавлен');
@@ -95,6 +95,7 @@ class UserController extends MainController
     {
         $dataToUpdate = $request->validated();
 
+        $user->role_id = $dataToUpdate['role_id'];
         $user->update($dataToUpdate);
 
         return redirect()->route('admin.users.index')

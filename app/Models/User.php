@@ -22,7 +22,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-
         'soft_deleted',
         'is_blocked',
     ];
@@ -56,9 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->role()->where('title', 'admin')->exists();
     }
 
-    public function unBlocked()
-    {
-        return $this->is_blocked == 0;
+    public function unBlocked() {
+
+        if($this['is_blocked']==0) {
+            return true;
+        }
     }
 
 }
