@@ -9,7 +9,7 @@
         </div>
 
 
-        <form action="{{ route('users.update', $user) }}" method="POST">
+        <form action="{{ route('admin.users.update', $user) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -17,7 +17,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Имя:</strong>
-                        <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control" placeholder="Имя">
+                        <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control"
+                               placeholder="Имя">
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -27,7 +28,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Элктронная почта:</strong>
-                        <input type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control" placeholder="Элктронная почта">
+                        <input type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control"
+                               placeholder="Элктронная почта">
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -59,10 +61,10 @@
                                 class="form-control"
                                 required>
                             @if($user->is_blocked == 0)
-                                <option value="{{ $user->is_blocked }}" selected> Разблокирован </option>
+                                <option value="{{ $user->is_blocked }}" selected> Разблокирован</option>
                                 <option value="1">Заблокировать</option>
                             @else
-                                <option value="{{ $user->is_blocked }}" selected> Заблокирован </option>
+                                <option value="{{ $user->is_blocked }}" selected> Заблокирован</option>
                                 <option value="0">Разблокировать</option>
                             @endif
                         </select>
@@ -70,7 +72,8 @@
                 </div>
                 <div class="form-group col-lg-3">
                     <div class="float-right">
-                        <a class="btn btn-info" href="{{ route('users.index', $user) }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                        <a class="btn btn-info" href="{{ route('admin.users.index', $user) }}" title="Go back"> <i
+                                class="fas fa-backward "></i> </a>
                     </div>
                     <div class="col-xs-offset-2 col-xs-8">
                         <button type="submit" class="btn btn-info">Обновить</button>

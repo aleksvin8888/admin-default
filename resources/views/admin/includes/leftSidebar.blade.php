@@ -1,8 +1,7 @@
-
-
 <div class="d-flex flex-column text-white bg-dark col-lg-2 p-0" style="min-height: 100vh;">
 
-    <a href="{{ route('main') }}" class="d-flex align-items-center mt-3 mb-3 mb-md-2 me-md-2 text-white text-decoration-none">
+    <a href="{{ route('admin.main') }}"
+       class="d-flex align-items-center mt-3 mb-3 mb-md-2 me-md-2 text-white text-decoration-none">
         <h2>Админ-панель</h2>
     </a>
 
@@ -29,12 +28,14 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-0" style="width: auto;">
         <li class="nav-item">
-            <a href="{{ route('main') }}" class="nav-link {{ Request::path()=='admin' ? 'active' : 'text-white'}}">
-               Главная
+            <a href="{{ route('admin.main') }}"
+               class="nav-link {{ Request::path()=='admin' ? 'active' : 'text-white'}}">
+                Главная
             </a>
         </li>
         <li>
-            <a href="{{ route('users.index') }}" class="nav-link {{ Request::path()=='admin/users' ? 'active' : 'text-white'}}">
+            <a href="{{ route('admin.users.index') }}"
+               class="nav-link {{ Request::path()=='admin/users' ? 'active' : 'text-white'}}">
                 Пользователи
             </a>
         </li>

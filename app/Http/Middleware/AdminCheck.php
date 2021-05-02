@@ -12,13 +12,13 @@ class AdminCheck
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->role->title =='admin'){
+        if($request->user()->role->title == 'admin') {
             return $next($request);
         }
 
