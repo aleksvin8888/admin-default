@@ -1,14 +1,22 @@
 @extends('admin.layouts.app')
 
 @section('title', 'Добавить пользователя')
+@section('page','Добавить пользователя')
+@section('breadcrumb-item')
+    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Пользователи</a></li>
+    <li class="breadcrumb-item active">Добавить пользователя</li>
+@endsection
 
 @section('mainContent')
-
-    <div class="container-fluid col-lg-10 mt-2">
-        <div class="bg-info text-white" id="breadcrumb-user">
-            <h2 class="ml-3">Новый пользователь</h2>
+<div class="card mb-4">
+    <div class="card-header">
+        <div class="float-left">
+            <a class="btn btn-light" href="{{ route('admin.users.index') }}" title="Go back">
+                <small><i class="fas fa-backward "></i> <b>Вернуться</b></small>
+            </a>
         </div>
-
+    </div>
+    <div class="card-body">
         <form method="POST" action="{{ route('admin.users.store') }}">
             @csrf
             <div class="form-group col-lg-12 mb-2">
@@ -57,17 +65,17 @@
                     @enderror
                 </div>
             </div>
+            </div>
+            <div class="card-footer">
             <div class="form-group col-lg-3">
-                <div class="float-right">
-                    <a class="btn btn-info" href="{{ route('admin.users.index') }}" title="Go back"> <i
-                            class="fas fa-backward "></i> </a>
-                </div>
                 <div class="col-xs-offset-2 col-xs-8">
-                    <button type="submit" class="btn btn-info">Создать</button>
+                    <button type="submit" class="btn btn-secondary">Создать</button>
                 </div>
             </div>
         </form>
     </div>
+</div>
+
 
 @endsection
 

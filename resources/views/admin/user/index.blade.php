@@ -2,6 +2,96 @@
 @section('title', 'Пользователи')
 
 @section('mainContent')
+@section('page','Пользователи')
+@section('breadcrumb-item')
+    <li class="breadcrumb-item active">Пользователи</li>
+@endsection
+<div class="card mb-4">
+    <div class="card-header">
+        <a class="btn btn-light" href="{{ route('admin.users.create') }}">
+            Добавить пользователя
+            <i class="fas fa-plus mr-1"></i>
+        </a>
+    </div>
+  <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>##</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Роль</th>
+                    <th>Дата регистрации</th>
+                    <th>Блокировка</th>
+                    <th>Действие</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>##</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Роль</th>
+                    <th>Дата регистрации</th>
+                    <th>Блокировка</th>
+                    <th>Действие</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+
+                        @if($user->role_id == null)
+                            <td>No Group</td>
+                        @else
+                            <td>{{ $user->role->title }}</td>
+                        @endif
+                        <td>{{ $user->created_at }}</td>
+                        <td>
+                            @if($user->is_blocked == 0)
+                                <p>Разблокирован</p>
+                            @else
+                                <p>Заблокирован</p>
+                            @endif
+                        </td>
+                        <td>
+
+                            <a href="{{ route('admin.users.show', $user) }}" title="show">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                            <a href="{{ route('admin.users.edit', $user) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+
+                            <a data-toggle="modal" id="smallButton" data-target="#smallModal"
+                               data-attr="{{ route ('admin.users.modal.ajax.delete', $user->id) }}" data-id="{{$user->id}}"
+                               title="Delete User">
+                                <i class="fas fa-trash text-danger"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            {{ $users->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 {{--    <div class="container col-lg-10 mt-2">--}}
 {{--        <div class="row">--}}
 {{--            <div class="col-lg-12 margin-tb">--}}
