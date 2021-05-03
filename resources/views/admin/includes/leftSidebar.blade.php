@@ -22,13 +22,13 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
+                   onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                        Выйти
+                    Выйти
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
+                    @csrf
                 </form>
             </div>
         </div>
