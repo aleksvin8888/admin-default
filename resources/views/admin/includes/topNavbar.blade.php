@@ -9,5 +9,7 @@
             <!-- content-->
         </div>
     </div>
-
+    <ul class="navbar-nav ml-auto ml-md-0">
+        <!-- content-->
+    </ul>
 </nav>

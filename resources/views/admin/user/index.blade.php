@@ -14,7 +14,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover table-bordered" >
                     <thead>
                     <tr>
                         <th>##</th>
@@ -52,7 +52,7 @@
                                     <i class="fas fa-eye"></i>
                                 </a>
 
-                                <a href="{{ route('admin.users.edit', $user) }}">
+                                <a href="{{ route('admin.users.edit', $user) }}" title="Edit User">
                                     <i class="fas fa-edit"></i>
                                 </a>
 

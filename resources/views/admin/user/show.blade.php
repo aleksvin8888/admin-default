@@ -1,59 +1,74 @@
 @extends('admin.layouts.app')
-@section('title',  'Данные пользователя ' . $user->name )
-
+@section('title', $user->name )
+@section('breadcrumb-item')
+    <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Пользователи</a></li>
+    <li class="breadcrumb-item active">Информацыя - {{ $user->name }}</li>
+@endsection
 @section('mainContent')
-    <div class="container mt-2 col-md-10">
-        <div class="row">
-            <div class="col-lg-10 margin-tb">
-                <div class="pull-left">
-                    <h2> Пользователь #{{ $user->id }} </h2>
-                </div>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('admin.users.index') }}" title="Go back"> <i
-                            class="fas fa-backward "></i> </a>
-                </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <div class="float-left">
+                <a class="btn btn-light" href="{{ route('admin.users.index') }}" title="Go back">
+                    <small><i class="fas fa-backward "></i> <b>Вернуться</b></small>
+                </a>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Имя:</strong>
-                    {{ $user->name }}
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover col-4" >
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>##</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>{{ $user->id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Имя</td>
+                        <td>{{ $user->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ $user->email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Роль</td>
+                        <td>{{ $user->role->title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Статус блокировки</td>
+                        <td>@if($user->is_blocked == 0)
+                                Разблокирован
+                            @else
+                                Заблокирован
+                            @endif</td>
+                    </tr>
+                    <tr>
+                        <td>Статус верефикацыи</td>
+                        <td>@if($user->email_verified_at == null)
+                                Неверифицырован
+                            @else
+                                Верифицирован
+                            @endif</td>
+                    </tr>
+                    <tr>
+                        <td>Дата регистрацыи</td>
+                        <td>{{ $user->created_at }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="card-footer">
+                    <div class="form-group col-lg-3">
+                        <div class="col-xs-offset-2 col-xs-8">
+                            <a type="button" class="btn btn-secondary"
+                               href="{{ route('admin.users.edit', $user->id) }}">Редактировать</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Электронная почта:</strong>
-                    {{ $user->email }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Роль:</strong>
-                    {{ $user->role->title }}
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Блокировка:</strong>
-                    @if($user->is_blocked == 0)
-                        Разблокирован
-                    @else
-                        Заблокирован
-                    @endif
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Дата регистрации:</strong>
-                    {{ $user->created_at }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <a type="button" class="btn btn-outline-primary" href="{{ route('admin.users.edit', $user->id) }}">Редактировать
-                    данные</a>
             </div>
         </div>
     </div>
