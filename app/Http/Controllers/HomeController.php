@@ -24,12 +24,12 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return Renderable
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
      */
     public function index()
     {
         if(Auth::user()->isAdmin()){
-            return view('admin.pages.dashboard');
+            return redirect()->route('admin.main');
         }
         return view('home');
     }

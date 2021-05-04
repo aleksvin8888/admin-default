@@ -1,6 +1,6 @@
 @include('auth.includes.header')
 
-<body class="bg-custom">
+<body class="bg-primary">
     <div id="layoutAuthentication">
         @yield('contentauth')
 
