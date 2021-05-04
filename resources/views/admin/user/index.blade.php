@@ -68,9 +68,9 @@
                     @endforeach
                     </tbody>
                 </table>
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="card">
+                <div class="justify-content-center">
+                    <div class="row col-md-12">
+                        <div class="card border-0">
                             <div class="card-body">
                                 {{ $users->links() }}
                             </div>
