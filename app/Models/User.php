@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @mixin IdeHelperUser
+ */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
