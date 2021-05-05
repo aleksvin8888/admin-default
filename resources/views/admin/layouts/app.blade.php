@@ -13,6 +13,9 @@
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+            crossorigin="anonymous"></script>
+
 </head>
 
 <body class="sb-nav-fixed">
