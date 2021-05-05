@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @mixin IdeHelperRole
+ */
 class Role extends Model
 {
     use HasFactory;
@@ -20,4 +23,5 @@ class Role extends Model
     {
         return $this->hasMany(User::class);
     }
+
 }

@@ -136,6 +136,7 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+            'unblocked' => 'Ваш аккаунт заблокирован администратором'
         ],
     ],
 

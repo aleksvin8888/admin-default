@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
@@ -23,12 +24,12 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return Renderable
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
      */
     public function index()
     {
-        if(\Auth::user()->role_id=='1'){
-            return view('admin.pages.dashboard');
+        if(Auth::user()->isAdmin()){
+            return redirect()->route('admin.main');
         }
         return view('home');
     }

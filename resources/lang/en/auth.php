@@ -13,8 +13,9 @@ return [
     |
     */
 
-    'failed' => 'Введенные данные не совпадают с записями в БД либо Ваш аккаунт заблокирован администратором.',
-    'password' => 'Предоставленный пароль неверен.',
+
+    'failed' => 'Эти учетные данные не соответствуют нашим записям  или  ваш аккаунт заблокирован',
+    'password' => 'The provided password is incorrect',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

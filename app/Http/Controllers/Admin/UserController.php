@@ -24,9 +24,9 @@ class UserController extends MainController
      */
     public function index()
     {
-            $users = User::paginate(5);
+        $users = User::paginate(5);
 
-            return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users'));
     }
 
     /**
@@ -50,13 +50,15 @@ class UserController extends MainController
     {
         $dataToStore = $request->validated();
 
+
         $dataToStore['password'] = Hash::make($request->password);
 
         $user = User::make($dataToStore);
         $user->role_id = $dataToStore['role_id'];
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'Пользователь успешно добавлен');
+
+        return redirect()->route('admin.users.index')->with('success', 'Пользователь успешно добавлен');
     }
 
     /**
@@ -85,7 +87,7 @@ class UserController extends MainController
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateUserRequest  $request
+     * @param UpdateUserRequest $request
      * @param User $user
      * @return RedirectResponse
      */
@@ -96,7 +98,7 @@ class UserController extends MainController
         $user->role_id = $dataToUpdate['role_id'];
         $user->update($dataToUpdate);
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->with('success', 'Данные пользователя успешно изменены');
     }
 
@@ -108,9 +110,9 @@ class UserController extends MainController
      */
     public function destroy(User $user)
     {
-       $user ->delete();
+        $user->delete();
 
-       return redirect(route('users.index'))->with('success', 'Пользователь удален');
+        return redirect(route('admin.users.index'))->with('success', 'Пользователь удален');
     }
 
 
@@ -120,7 +122,7 @@ class UserController extends MainController
      * @param $id
      * @return Application|Factory|View|RedirectResponse|Response
      */
-    public function delete($id)
+    public function adminUsersModalAjaxDelete($id)
     {
         $user = User::find($id);
 
