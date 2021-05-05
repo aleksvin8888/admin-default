@@ -321,7 +321,7 @@ eval("/*!\r\n    * Start Bootstrap - SB Admin v6.0.2 (https://startbootstrap.com
   \***********************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__(/*! ./bootstrap */ \"./resources/js/admin/bootstrap.js\");\n\n__webpack_require__(/*! ./admin */ \"./resources/js/admin/admin.js\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYWRtaW4vYXBwLmpzPzAzMGEiXSwibmFtZXMiOlsicmVxdWlyZSJdLCJtYXBwaW5ncyI6IkFBQUFBLG1CQUFPLENBQUMsc0RBQUQsQ0FBUDs7QUFFQUEsbUJBQU8sQ0FBQyw4Q0FBRCxDQUFQIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL2pzL2FkbWluL2FwcC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbInJlcXVpcmUoJy4vYm9vdHN0cmFwJyk7XHJcblxyXG5yZXF1aXJlKCcuL2FkbWluJyk7XHJcblxyXG5cclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/admin/app.js\n");
+eval("__webpack_require__(/*! ./bootstrap */ \"./resources/js/admin/bootstrap.js\");\n\n__webpack_require__(/*! ./admin */ \"./resources/js/admin/admin.js\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYWRtaW4vYXBwLmpzPzAzMGEiXSwibmFtZXMiOlsicmVxdWlyZSJdLCJtYXBwaW5ncyI6IkFBQUFBLG1CQUFPLENBQUMsc0RBQUQsQ0FBUDs7QUFFQUEsbUJBQU8sQ0FBQyw4Q0FBRCxDQUFQIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL2pzL2FkbWluL2FwcC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbInJlcXVpcmUoJy4vYm9vdHN0cmFwJyk7XG5cbnJlcXVpcmUoJy4vYWRtaW4nKTtcblxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/admin/app.js\n");
 
 /***/ }),
 
