@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
-            $table->softDeletesTz($column = 'deleted_at', $precision = 0);
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->rememberToken();
             $table->boolean('is_blocked')->default(0);
             $table->timestamps();
