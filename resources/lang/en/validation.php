@@ -20,7 +20,7 @@ return [
     'alpha' => 'The :attribute must only contain letters.',
     'alpha_dash' => 'The :attribute must only contain letters, numbers, dashes and underscores.',
     'alpha_num' => 'The :attribute must only contain letters and numbers.',
-    'array' => 'The :attribute must be an array.',
+    'array' => 'Обект :attribute должен быть массивом.',
     'before' => 'The :attribute must be a date before :date.',
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
     'between' => [
@@ -30,7 +30,7 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
+    'confirmed' => 'Подтверждение :attribute не совпадает.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
@@ -39,7 +39,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => 'Неверно указан email ',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists' => 'The selected :attribute is invalid.',
     'file' => 'The :attribute must be a file.',
@@ -47,13 +47,13 @@ return [
     'gt' => [
         'numeric' => 'The :attribute must be greater than :value.',
         'file' => 'The :attribute must be greater than :value kilobytes.',
-        'string' => 'The :attribute must be greater than :value characters.',
+        'string' => 'значения  :attribute должен содержать больше :value символов.',
         'array' => 'The :attribute must have more than :value items.',
     ],
     'gte' => [
         'numeric' => 'The :attribute must be greater than or equal :value.',
         'file' => 'The :attribute must be greater than or equal :value kilobytes.',
-        'string' => 'The :attribute must be greater than or equal :value characters.',
+        'string' => 'Значения :attribute должен быть больше или равен :value .',
         'array' => 'The :attribute must have :value items or more.',
     ],
     'image' => 'The :attribute must be an image.',
@@ -67,19 +67,19 @@ return [
     'lt' => [
         'numeric' => 'The :attribute must be less than :value.',
         'file' => 'The :attribute must be less than :value kilobytes.',
-        'string' => 'The :attribute must be less than :value characters.',
+        'string' => 'Значения  :attribute должен содержать меньше :value  символов  .',
         'array' => 'The :attribute must have less than :value items.',
     ],
     'lte' => [
         'numeric' => 'The :attribute must be less than or equal :value.',
         'file' => 'The :attribute must be less than or equal :value kilobytes.',
-        'string' => 'The :attribute must be less than or equal :value characters.',
+        'string' => 'Значения :attribute должен быть меньше или равен  :value.',
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
         'numeric' => 'The :attribute must not be greater than :max.',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'string' => 'The :attribute must not be greater than :max characters.',
+        'string' => 'Поле :attribute не может быть больше, чем :max символов.',
         'array' => 'The :attribute must not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -87,7 +87,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'Поле :attribute должен содержать не менее :min символов.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
@@ -97,7 +97,7 @@ return [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'Поле :attribute обязательно для заполнения.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -117,7 +117,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => ':attribute уже существует',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -136,6 +136,7 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+            'unblocked' => 'Ваш аккаунт заблокирован администратором'
         ],
     ],
 

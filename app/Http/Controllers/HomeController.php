@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
+use Auth;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
@@ -19,9 +24,22 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
      */
     public function index()
+    {
+        if(Auth::user()->isAdmin()){
+            return redirect()->route('admin.main');
+        }
+        return view('home');
+    }
+
+    /**
+     * Show the application homepage.
+     *
+     * @return Application|Factory|View
+     */
+    public function home()
     {
         return view('home');
     }
