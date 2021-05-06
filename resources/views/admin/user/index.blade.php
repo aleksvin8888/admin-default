@@ -49,7 +49,8 @@
                             <td>
 
                                 <a href="{{ route('admin.users.show', $user) }}" title="show">
-                                    <i class="fas fa-eye"></i>
+{{--                                    <i class="fas fa-eye"></i>--}}
+                                    <i class="fas fa-adjust"></i>
                                 </a>
 
                                 <a href="{{ route('admin.users.edit', $user) }}" title="Edit User">
