@@ -10081,11 +10081,11 @@ body {
     }
     .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
         margin-left: -225px;
-        pointer-events: none;
+        /*pointer-events: none;*/
     }
     .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
         display: none;
-        pointer-events: all;
+        /*pointer-events: all;*/
     }
 }
 .sb-nav-fixed .sb-topnav {
