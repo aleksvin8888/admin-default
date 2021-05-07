@@ -58,3 +58,9 @@ $(document).on('click', '#smallButton', function(event) {
         , timeout: 8000
     })
 });
+
+// Call the dataTables jQuery plugin
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+});
+
