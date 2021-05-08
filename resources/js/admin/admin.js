@@ -23,15 +23,12 @@
     if(window.matchMedia('(max-width: 992px)').matches) {
 
         $("#layoutSidenav_content").on("click", function (e) {
-            // e.preventDefault();
+
             $("body").removeClass("sb-sidenav-toggled");
         });
     }
 
 })(jQuery);
-
-
-
 
 // script from modal delet-user
 $(document).on('click', '#smallButton', function(event) {
