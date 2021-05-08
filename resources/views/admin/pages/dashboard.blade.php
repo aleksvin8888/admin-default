@@ -23,6 +23,9 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('plugins/chart/Chart.min.js') }}"></script>
+    <script src="{{ asset('plugins/chart/chart.js') }}"></script>
     @include('admin.includes.table')
 
 @endsection
