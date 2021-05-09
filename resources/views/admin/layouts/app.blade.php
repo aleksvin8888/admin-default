@@ -26,11 +26,9 @@
                 @yield('mainContent')
             </div>
         </main>
-       @include('admin.includes.footer')
+        @include('admin.includes.footer')
     </div>
 </div>
-
 <script src="{{ asset('assets/js/app.js') }}"></script>
-
 </body>
 </html>
