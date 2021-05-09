@@ -19,4 +19,3 @@ mix.js('resources/js/admin/app.js', 'public/assets/js')
     .css('resources/css/admin/app.css', 'public/assets/css')
     .sourceMaps();
 
-mix.setResourceRoot("../");
