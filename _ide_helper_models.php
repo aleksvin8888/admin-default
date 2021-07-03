@@ -70,26 +70,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  */
-	class IdeHelperUser extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {
-        public function hasVerifiedEmail()
-        {
-            // TODO: Implement hasVerifiedEmail() method.
-        }
-
-        public function markEmailAsVerified()
-        {
-            // TODO: Implement markEmailAsVerified() method.
-        }
-
-        public function sendEmailVerificationNotification()
-        {
-            // TODO: Implement sendEmailVerificationNotification() method.
-        }
-
-        public function getEmailForVerification()
-        {
-            // TODO: Implement getEmailForVerification() method.
-        }
-    }
+	class IdeHelperUser extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
 }
 
