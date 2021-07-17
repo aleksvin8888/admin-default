@@ -25,7 +25,10 @@ class CreateUsersTable extends Migration
             $table->boolean('is_blocked')->default(0);
             $table->timestamps();
 
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
+            $table->foreign('role_id')
+                            ->references('id')
+                            ->on('roles')
+                            ->onDelete('set null');
 
 
         });
