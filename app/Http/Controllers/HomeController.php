@@ -11,36 +11,9 @@ use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
-     */
-    public function index()
-    {
-        if(Auth::user()->isAdmin()){
-            return redirect()->route('admin.main');
-        }
-        return view('home');
-    }
-
-    /**
-     * Show the application homepage.
-     *
-     * @return Application|Factory|View
-     */
-    public function home()
+    public function index(): View
     {
         return view('home');
     }
+
 }

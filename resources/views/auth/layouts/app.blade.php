@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 </head>
 <body class="bg-primary">
     <div id="layoutAuthentication">
@@ -17,6 +17,6 @@
 
         @include('auth.includes.footer')
     </div>
-<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
