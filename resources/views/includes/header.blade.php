@@ -48,9 +48,9 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Blog Left Sidebar</a></li>
-                            <li><a href="#">Blog Right Sidebar</a></li>
-                            <li><a href="#">Blog Detail</a></li>
+                            <li><a href="{{route('blogs.index')}}">Blog </a></li>
+
+                            <li><a href="#">Blog show</a></li>
                         </ul>
                     </li>
                 </ul>

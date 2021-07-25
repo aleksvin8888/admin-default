@@ -1,5 +1,5 @@
 <?php
 
-use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\Main\Blog\BlogController;
 
-Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+Route::resource('blogs', BlogController::class)->names('blogs');
