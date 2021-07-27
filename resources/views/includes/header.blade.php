@@ -1,11 +1,14 @@
+
+
 <!--Header-->
 <header class="header_style2 nav-stacked affix-top" data-spy="affix" data-offset-top="1">
     <!-- Navigation -->
     <nav id="navigation_bar" class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <div class="logo"> <a href="#"><img src="{{asset('assets/images/logo.png')}}" alt="image"/></a> </div>
-                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <div class="logo"><a href="#"><img src="{{asset('assets/images/logo.png')}}" alt="image"/></a></div>
+                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -57,21 +60,44 @@
             </div>
 
             <div class="header_wrap">
-                <div class="user_login">
-                    <ul>
-                        <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Profile Settings</a></li>
-                                <li><a href="#">My Vehicles</a></li>
-                                <li><a href="#">Post a Vehicle</a></li>
-                                <li><a href="#">Sign Out</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
+                @guest
+                    @if (Route::has('login'))
+                        <div class="login_btn">
+                            <!--href="#loginform"-->
+                            <a href="{{ route('login') }}"  class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">
+                                {{ __('Login') }}
+                            </a>
+                        </div>
+                    @endif
+                @else
+                    <div class="user_login">
+                        <ul>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user-circle" aria-hidden="true">
+                                        {{ Auth::user()->name }}
+                                    </i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile Settings</a></li>
+                                    <li><a href="#">My Vehicles</a></li>
+                                    <li><a href="#">Post a Vehicle</a></li>
+                                    <li>
+                                        <a href="#"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                @endguest
             </div>
-
         </div>
     </nav>
     <!-- Navigation end -->
