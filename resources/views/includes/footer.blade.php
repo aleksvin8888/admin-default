@@ -1,84 +1,87 @@
-<!--Footer -->
-<footer>
+<!-- ======= Footer ======= -->
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Our Newsletter</h4>
+                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                </div>
+                <div class="col-lg-6">
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <h6>Top Categores</h6>
-                    <ul>
-                        <li><a href="#">Car Brand Name</a></li>
-                        <li><a href="#">Car Brand Name 2</a></li>
-                        <li><a href="#">Car Brand Name 3</a></li>
-                        <li><a href="#">Car Brand Name 4</a></li>
-                        <li><a href="#">Car Brand Name 5</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <h6>About Us</h6>
-                    <ul>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Hybrid Cars</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Trademarks</a></li>
-                        <li><a href="#">Terms of use</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <h6>Useful Links</h6>
-                    <ul>
-                        <li><a href="#">Our Partners</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                        <li><a href="#">Investors</a></li>
-                        <li><a href="#">Request a Quote</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <h6>Subscribe Newsletter</h6>
-                    <div class="newsletter-form">
-                        <form action="#">
-                            <div class="form-group">
-                                <input type="email" class="form-control newsletter-input" required placeholder="Enter Email Address" />
-                            </div>
-                            <button type="submit" class="btn btn-block">Subscribe <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-                        </form>
-                        <p class="subscribed-text">*We send great deals and latest auto news to our subscribed users every week.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-push-6 text-right">
-                    <div class="footer_widget">
-                        <p>Download Our APP:</p>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-android" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="footer_widget">
-                        <p>Connect with Us:</p>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-md-pull-6">
-                    <p class="copy-right">Copyright &copy; 2019 CarForYou. All Rights Reserved</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- /Footer-->
 
-<!--Back to top-->
-<div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
-<!--/Back to top-->
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>
+                        A108 Adam Street <br>
+                        New York, NY 535022<br>
+                        United States <br><br>
+                        <strong>Phone:</strong> +1 5589 55488 55<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <h3>About Moderna</h3>
+                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

@@ -1,106 +1,40 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-transparent">
+    <div class="container">
 
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="#"><span>Moderna</span></a></h1>
 
-<!--Header-->
-<header class="header_style2 nav-stacked affix-top" data-spy="affix" data-offset-top="1">
-    <!-- Navigation -->
-    <nav id="navigation_bar" class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="logo"><a href="#"><img src="{{asset('assets/images/logo.png')}}" alt="image"/></a></div>
-                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse"
-                        class="navbar-toggle collapsed" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navigation">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Home Page 1</a></li>
-                            <li><a href="#">Home Page 2</a></li>
-                            <li><a href="#">Home Page 3</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">About Us</a></li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Grid Style</a></li>
-                            <li><a href="#">Classic Style</a></li>
-                            <li><a href="#">Detail Page Style 1</a></li>
-                            <li><a href="#">Detail Page Style 2</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dealers</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">List View</a></li>
-                            <li><a href="#">Detail Page</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Compare Vehicles</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">404 Error</a></li>
-                            <li><a href="#">Coming Soon</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{route('blogs.index')}}">Blog </a></li>
-
-                            <li><a href="#">Blog show</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="header_wrap">
-                @guest
-                    @if (Route::has('login'))
-                        <div class="login_btn">
-                            <!--href="#loginform"-->
-                            <a href="{{ route('login') }}"  class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">
-                                {{ __('Login') }}
-                            </a>
-                        </div>
-                    @endif
-                @else
-                    <div class="user_login">
-                        <ul>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-user-circle" aria-hidden="true">
-                                        {{ Auth::user()->name }}
-                                    </i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Profile Settings</a></li>
-                                    <li><a href="#">My Vehicles</a></li>
-                                    <li><a href="#">Post a Vehicle</a></li>
-                                    <li>
-                                        <a href="#"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" >
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                @endguest
-            </div>
         </div>
-    </nav>
-    <!-- Navigation end -->
 
-</header>
-<!-- /Header -->
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="{{route('blogs.index')}}">Blog</a></li>
+                <li class="drop-down"><a href="">Drop Down</a>
+                    <ul>
+                        <li><a href="#">Drop Down 1</a></li>
+                        <li class="drop-down"><a href="#">Drop Down 2</a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Drop Down 3</a></li>
+                        <li><a href="#">Drop Down 4</a></li>
+                        <li><a href="#">Drop Down 5</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->

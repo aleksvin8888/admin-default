@@ -1,10 +1,25 @@
 
-// Variables
-@import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
+// 1
+@import "~bootstrap/scss/bootstrap";
+// 2
+@import "~animate.css";
+
+// 4
+@import "~boxicons/css/boxicons.css";
+// 5
+@import "~venobox/venobox/venobox.css";
+// 6
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+// 7
+@import "~aos/dist/aos.css";
+
 // DataTables
 @import '~datatables.net-bs4/css/dataTables.bootstrap4.css';
 // fortawesome
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+// Variables
+@import 'variables';
+// icofont
+@import "icofont/icofont.min.css";

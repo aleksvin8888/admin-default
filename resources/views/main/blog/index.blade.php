@@ -3,229 +3,270 @@
 
 @section('content')
 
-<!--Page Header-->
-<section class="page-header blog_page">
-    <div class="container">
-        <div class="page-header_wrap">
-            <div class="page-heading">
-                <h1>Our Blog</h1>
+    <main id="main">
+
+        <!-- ======= Blog Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Blog</h2>
+
+                    <ol>
+                        <li><a href="#">Home</a></li>
+                        <li>Blog</li>
+                    </ol>
+                </div>
+
             </div>
-            <ul class="coustom-breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li>Our Blog</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Dark Overlay-->
-    <div class="dark-overlay"></div>
-</section>
-<!-- /Page Header-->
+        </section><!-- End Blog Section -->
 
-<!--Our-Blog-->
-<section class="our_blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9 col-md-8 col-md-push-4 col-lg-push-3">
-                <!--article-1-->
-                <article class="article_wrap">
-                    <div class="article_img"> <a href="#"><img src="assets/images/850x500.jpg" alt="image"></a>
-                        <div class="articale_header">
-                            <h2><a href="#">Lorem Ipsum is simply dummy text.</a></h2>
-                            <div class="article_meta">
+        <!-- ======= Blog Section ======= -->
+        <section class="blog" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-8 entries">
+
+                        <article class="entry">
+
+                            <div class="entry-img">
+                                <img src="{{asset('img/blog-post-1.jpg')}}" alt="" class="img-fluid">
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="#">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia
+                                    reiciendis</a>
+                            </h2>
+
+                            <div class="entry-meta">
                                 <ul>
-                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="#">Admin</a></li>
-                                    <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 20 Nov 2016</li>
-                                    <li><i class="fa fa-tags" aria-hidden="true"></i> <a href="#">General</a>, <a href="#">Business</a></li>
-                                    <li><i class="fa fa-comment" aria-hidden="true"></i> <a href="#">10 Comments</a></li>
-                                    <li><i class="fa fa-eye" aria-hidden="true"></i> <a href="#">205 Views</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">John
+                                            Doe</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="#">12
+                                            Comments</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="article_info">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
-                </article>
 
-                <!--article-2-->
-                <article class="article_wrap">
-                    <div class="article_img"> <a href="#"><img src="assets/images/850x500.jpg" alt="image"></a>
-                        <div class="articale_header">
-                            <h2><a href="#">There are many variations of passages.</a></h2>
-                            <div class="article_meta">
+                            <div class="entry-content">
+                                <p>
+                                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et
+                                    laboriosam eius aut nostrum quidem aliquid dicta.
+                                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos
+                                    aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
+                                </p>
+                                <div class="read-more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+
+                        </article><!-- End blog entry -->
+
+                        <article class="entry">
+
+                            <div class="entry-img">
+                                <img src="{{asset('img/blog-post-2.jpg')}}" alt="" class="img-fluid">
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="#">Nisi magni odit consequatur autem nulla dolorem</a>
+                            </h2>
+
+                            <div class="entry-meta">
                                 <ul>
-                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="#">Admin</a></li>
-                                    <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 20 Nov 2016</li>
-                                    <li><i class="fa fa-tags" aria-hidden="true"></i> <a href="#">General</a>, <a href="#">Business</a></li>
-                                    <li><i class="fa fa-comment" aria-hidden="true"></i> <a href="#">10 Comments</a></li>
-                                    <li><i class="fa fa-eye" aria-hidden="true"></i> <a href="#">205 Views</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">John
+                                            Doe</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="#">12
+                                            Comments</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="article_info">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
-                </article>
 
-                <!--article-3-->
-                <article class="article_wrap">
-                    <div class="article_img"> <a href="#"><img src="assets/images/850x500.jpg" alt="image"></a>
-                        <div class="articale_header">
-                            <h2><a href="#">Lorem Ipsum has been the industry's </a></h2>
-                            <div class="article_meta">
+                            <div class="entry-content">
+                                <p>
+                                    Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo
+                                    libero rerum voluptatem pariatur nam.
+                                    Ad impedit qui officiis est in non aliquid veniam laborum. Id ipsum qui aut. Sit aliquam et quia
+                                    molestias laboriosam. Tempora nam odit omnis eum corrupti qui aliquid excepturi molestiae. Facilis et
+                                    sint quos sed voluptas. Maxime sed tempore enim omnis non alias odio quos distinctio.
+                                </p>
+                                <div class="read-more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+
+                        </article><!-- End blog entry -->
+
+                        <article class="entry">
+
+                            <div class="entry-img">
+                                <img src="{{asset('img/blog-post-3.jpg')}}" alt="" class="img-fluid">
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="#">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit
+                                    sint.</a>
+                            </h2>
+
+                            <div class="entry-meta">
                                 <ul>
-                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="#">Admin</a></li>
-                                    <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 20 Nov 2016</li>
-                                    <li><i class="fa fa-tags" aria-hidden="true"></i> <a href="#">General</a>, <a href="#">Business</a></li>
-                                    <li><i class="fa fa-comment" aria-hidden="true"></i> <a href="#">10 Comments</a></li>
-                                    <li><i class="fa fa-eye" aria-hidden="true"></i> <a href="#">205 Views</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">John
+                                            Doe</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="#">12
+                                            Comments</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="article_info">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
-                </article>
 
-                <!--article-4-->
-                <article class="article_wrap">
-                    <div class="article_img"> <a href="#"><img src="assets/images/850x500.jpg" alt="image"></a>
-                        <div class="articale_header">
-                            <h2><a href="#">The standard chunk of Lorem Ipsum.</a></h2>
-                            <div class="article_meta">
+                            <div class="entry-content">
+                                <p>
+                                    Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et.
+                                    Eum temporibus fugiat voluptate enim tenetur sunt omnis.
+                                    Doloremque est saepe laborum aut. Ipsa cupiditate ex harum at recusandae nesciunt. Ut dolores velit.
+                                </p>
+                                <div class="read-more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+
+                        </article><!-- End blog entry -->
+
+                        <article class="entry">
+
+                            <div class="entry-img">
+                                <img src="{{asset('img/blog-post-4.jpg')}}" alt="" class="img-fluid">
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="#">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius
+                                    exercitationem. Veniam eius velit ab ipsa quidem rem.</a>
+                            </h2>
+
+                            <div class="entry-meta">
                                 <ul>
-                                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="#">Admin</a></li>
-                                    <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 20 Nov 2016</li>
-                                    <li><i class="fa fa-tags" aria-hidden="true"></i> <a href="#">General</a>, <a href="#">Business</a></li>
-                                    <li><i class="fa fa-comment" aria-hidden="true"></i> <a href="#">10 Comments</a></li>
-                                    <li><i class="fa fa-eye" aria-hidden="true"></i> <a href="#">205 Views</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">John
+                                            Doe</a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="#">12
+                                            Comments</a></li>
                                 </ul>
                             </div>
+
+                            <div class="entry-content">
+                                <p>
+                                    Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum
+                                    enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
+                                    Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui
+                                    voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat
+                                    magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
+                                </p>
+                                <div class="read-more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+
+                        </article><!-- End blog entry -->
+
+                        <div class="blog-pagination">
+                            <ul class="justify-content-center">
+                                <li class="disabled"><i class="icofont-rounded-left"></i></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="article_info">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
-                </article>
-                <div class="pagination">
-                    <ul>
-                        <li class="current">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
-                </div>
-            </div>
 
-            <!--Side-bar-->
-            <aside class="col-lg-3 col-md-4 col-md-pull-8 col-lg-pull-9">
-                <div class="sidebar_widget">
-                    <div class="widget_heading">
-                        <h5>Search Blog</h5>
-                    </div>
-                    <div class="blog_search">
-                        <form action="#" method="get">
-                            <input class="form-control" name="search" type="text" placeholder="Search...">
-                            <button type="submit" class="search_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <div class="sidebar_widget">
-                    <div class="widget_heading">
-                        <h5>Popular Posts</h5>
-                    </div>
-                    <div class="popular_post">
-                        <ul>
-                            <li>
-                                <div class="popular_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                                <div class="popular_post_title"> <a href="#">At vero eos et accusamus et iusto odio dignissimos.</a> </div>
-                            </li>
-                            <li>
-                                <div class="popular_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                                <div class="popular_post_title"> <a href="#">On the other hand, we denounce with righteous.</a> </div>
-                            </li>
-                            <li>
-                                <div class="popular_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                                <div class="popular_post_title"> <a href="#">But I must explain to you how all this mistaken idea.</a> </div>
-                            </li>
-                            <li>
-                                <div class="popular_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div>
-                                <div class="popular_post_title"> <a href="#">Nor again is there anyone who loves or pursues.</a> </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sidebar_widget">
-                    <div class="widget_heading">
-                        <h5>Categories</h5>
-                    </div>
-                    <div class="categories_list">
-                        <ul>
-                            <li><a href="#">Trends</a></li>
-                            <li><a href="#">The Works</a></li>
-                            <li><a href="#">Hand Wash</a></li>
-                            <li><a href="#">General</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Auto Detail</a></li>
-                            <li><a href="#">Motorbikes</a></li>
-                            <li><a href="#">Compacts</a></li>
-                            <li><a href="#">Vans & Trucks</a></li>
-                            <li><a href="#">Buy a car</a></li>
-                            <li><a href="#">Sell your Car</a></li>
-                            <li><a href="#">Car Land</a></li>
-                            <li><a href="#">Car Showrooms</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sidebar_widget">
-                    <div class="widget_heading">
-                        <h5>Tag Widget</h5>
-                    </div>
-                    <div class="tag_list">
-                        <ul>
-                            <li><a href="#">Trends</a></li>
-                            <li><a href="#">The Works</a></li>
-                            <li><a href="#">Auto Detail</a></li>
-                            <li><a href="#">Motorbikes</a></li>
-                            <li><a href="#">Compacts</a></li>
-                            <li><a href="#">Buy a car</a></li>
-                            <li><a href="#">Vans & Trucks</a></li>
-                            <li><a href="#">Car Land</a></li>
-                            <li><a href="#">Sell your Car</a></li>
-                            <li><a href="#">Sedans</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </aside>
-            <!--/Side-bar-->
+                    </div><!-- End blog entries list -->
 
-        </div>
-    </div>
-</section>
-<!-- /Our-Blog-->
+                    <div class="col-lg-4">
+                        <div class="sidebar">
 
-<!--Brands-->
-<section class="brand-section gray-bg">
-    <div class="container">
-        <div class="brand-hadding">
-            <h5>Popular Brands</h5>
-        </div>
-        <div class="brand-logo-list">
-            <div id="popular_brands">
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-                <div><a href="#"><img src="assets/images/100x60.png" class="img-responsive" alt="image"></a></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /Brands-->
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="sidebar-item search-form">
+                                <form action="">
+                                    <input type="text">
+                                    <button type="submit"><i class="icofont-search"></i></button>
+                                </form>
+                            </div><!-- End sidebar search formn-->
+
+                            <h3 class="sidebar-title">Categories</h3>
+                            <div class="sidebar-item categories">
+                                <ul>
+                                    <li><a href="#">General <span>(25)</span></a></li>
+                                    <li><a href="#">Lifestyle <span>(12)</span></a></li>
+                                    <li><a href="#">Travel <span>(5)</span></a></li>
+                                    <li><a href="#">Design <span>(22)</span></a></li>
+                                    <li><a href="#">Creative <span>(8)</span></a></li>
+                                    <li><a href="#">Educaion <span>(14)</span></a></li>
+                                </ul>
+
+                            </div><!-- End sidebar categories-->
+
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <div class="sidebar-item recent-posts">
+                                <div class="post-item clearfix">
+                                    <img src="{{asset('img/recent-posts-1.jpg')}}" alt="">
+                                    <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="{{asset('img/recent-posts-2.jpg')}}" alt="">
+                                    <h4><a href="#">Quidem autem et impedit</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="{{asset('img/recent-posts-3.jpg')}}" alt="">
+                                    <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="{{asset('img/recent-posts-4.jpg')}}" alt="">
+                                    <h4><a href="#">Laborum corporis quo dara net para</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="{{asset('img/recent-posts-5.jpg')}}" alt="">
+                                    <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+                            </div><!-- End sidebar recent posts-->
+
+                            <h3 class="sidebar-title">Tags</h3>
+                            <div class="sidebar-item tags">
+                                <ul>
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">IT</a></li>
+                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">Mac</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Office</a></li>
+                                    <li><a href="#">Creative</a></li>
+                                    <li><a href="#">Studio</a></li>
+                                    <li><a href="#">Smart</a></li>
+                                    <li><a href="#">Tips</a></li>
+                                    <li><a href="#">Marketing</a></li>
+                                </ul>
+
+                            </div><!-- End sidebar tags-->
+
+                        </div><!-- End sidebar -->
+
+                    </div><!-- End blog sidebar -->
+
+                </div><!-- End .row -->
+
+            </div><!-- End .container -->
+
+        </section><!-- End Blog Section -->
+
+    </main><!-- End #main -->
 
 @endsection
