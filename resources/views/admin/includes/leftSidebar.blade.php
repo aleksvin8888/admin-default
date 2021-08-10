@@ -10,7 +10,19 @@
             <div class="sb-sidenav-menu-heading">Дополнительная информация</div>
             <a class="nav-link" href="{{ route('admin.users.index') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                Пользователи
+                Users
+            </a>
+            <a class="nav-link" href="{{route('admin.categories.index')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-list-ol"></i></div>
+                Categorys
+            </a>
+            <a class="nav-link" href="#">
+                <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
+                Tags
+            </a>
+            <a class="nav-link" href="#">
+                <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+                Posts
             </a>
         </div>
     </div>

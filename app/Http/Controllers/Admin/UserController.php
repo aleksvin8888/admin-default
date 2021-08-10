@@ -25,7 +25,7 @@ class UserController extends MainController
     public function index()
     {
 
-        $users = User::paginate(5);
+        $users = User::paginate(10);
 
         return view('admin.user.index', compact('users'));
     }
@@ -49,8 +49,8 @@ class UserController extends MainController
      */
     public function store(CreateUserRequest $request)
     {
-        $dataToStore = $request->validated();
 
+        $dataToStore = $request->validated();
 
         $dataToStore['password'] = Hash::make($request->password);
 
