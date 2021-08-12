@@ -58,6 +58,10 @@ $(document).on('click', '#smallButton', function(event) {
 
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-    $('#dataTable').DataTable();
+    $('#dataTable').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Ukrainian.json"
+        },
+    });
 });
 

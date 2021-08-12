@@ -19,7 +19,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover table-bordered" >
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>##</th>
@@ -31,6 +31,17 @@
                         <th>Действие</th>
                     </tr>
                     </thead>
+                    <tfoot>
+                    <tr>
+                        <th>##</th>
+                        <th>Имя</th>
+                        <th>Email</th>
+                        <th>Роль</th>
+                        <th>Дата регистрации</th>
+                        <th>Блокировка</th>
+                        <th>Действие</th>
+                    </tr>
+                    </tfoot>
                     <tbody>
                     @foreach ($users as $user)
                         <tr>
@@ -52,7 +63,6 @@
                                 @endif
                             </td>
                             <td>
-
                                 <a href="{{ route('admin.users.show', $user) }}" title="show">
                                     <i class="fas fa-eye"></i>
                                 </a>
@@ -60,28 +70,17 @@
                                 <a href="{{ route('admin.users.edit', $user) }}" title="Edit User">
                                     <i class="fas fa-edit"></i>
                                 </a>
-
                                 <a data-toggle="modal" id="smallButton" data-target="#smallModal"
                                    data-attr="{{ route ('admin.users.modal.ajax.delete', $user->id) }}"
                                    data-id="{{$user->id}}"
                                    title="Delete User">
                                     <i class="fas fa-trash text-danger"></i>
                                 </a>
-
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                <div class="justify-content-center">
-                    <div class="row col-md-12">
-                        <div class="card border-0">
-                            <div class="card-body">
-                                {{ $users->links() }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

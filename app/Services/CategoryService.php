@@ -7,7 +7,7 @@ namespace App\Services;
 use App\Models\Category;
 use Illuminate\Support\Str;
 
-class CategoryService
+final class CategoryService
 {
     public function create(array $data)
     {

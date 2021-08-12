@@ -8,7 +8,7 @@ namespace App\Services;
 use App\Models\Tag;
 use Illuminate\Support\Str;
 
-class TagService
+final class TagService
 {
     public function create(array $data)
     {
