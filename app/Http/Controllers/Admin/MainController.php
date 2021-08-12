@@ -7,7 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
-class MainController extends Controller
+final class MainController extends BaseController
 {
     /**
      * Display a dashboard page.

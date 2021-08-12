@@ -25,7 +25,6 @@ class CreateCategoryRequest extends FormRequest
     {
         return [
             'title'     => 'required',
-
         ];
     }
 }

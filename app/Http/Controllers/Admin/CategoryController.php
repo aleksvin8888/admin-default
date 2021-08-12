@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateCategoryRequest;
 use App\Http\Requests\Admin\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Services\CategoryService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -14,8 +15,16 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
-class CategoryController extends Controller
+final class CategoryController extends BaseController
 {
+
+    private $categoryService;
+
+    public function __construct(CategoryService $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
+
 
     public function index()
     {
@@ -33,15 +42,9 @@ class CategoryController extends Controller
 
     public function store(CreateCategoryRequest $request)
     {
-
         $data = $request->validated();
 
-        $data['slug'] = Str::slug($data['title']);
-
-        $category = Category::make($data);
-        $category->slug = $data['slug'];
-
-        $category->save();
+        $this->categoryService->create($data);
 
         return redirect()->route('admin.categories.index');
     }
@@ -63,11 +66,7 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        $data['slug'] = Str::slug($data['title']);
-
-        $category->slug = $data['slug'];
-
-        $category->update($data);
+        $this->categoryService->update($category, $data);
 
         return redirect(route('admin.categories.index'))->with('success', 'Категория изменина');
     }

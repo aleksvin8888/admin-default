@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
 
             $table->index('category_id', 'post_category_idx');

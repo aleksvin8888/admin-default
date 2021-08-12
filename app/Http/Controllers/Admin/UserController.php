@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class UserController extends MainController
+final class UserController extends BaseController
 {
 
     /**

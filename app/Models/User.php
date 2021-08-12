@@ -47,8 +47,9 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable;
-    use SoftDeletes;
+    use HasFactory,
+        Notifiable,
+        SoftDeletes;
     protected $table = 'users';
 
     /**
