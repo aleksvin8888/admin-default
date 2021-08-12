@@ -2,13 +2,6 @@
 <H2> just a training and test project</h2>
 __
 
-<br>Already implemented:
-<br> - authentication
-<br> - validation of mail
-<br> - password reset
-<br> - CRUD of users
-<br> - CRUD of roles
-<br> - User and Role SEEDS
 
 Getting Started:
 
