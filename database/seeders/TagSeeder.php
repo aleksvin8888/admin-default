@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CategorySeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,18 +17,18 @@ class CategorySeeder extends Seeder
     {
         $data = [
             [
-                'title'              => 'General',
-                'slug'              => 'general'
+                'title'              => 'Dota',
+                'slug'              => 'dota'
 
             ],
             [
-                'title'              => 'Lifestyle',
-                'slug'              => 'lifestyle'
+                'title'              => 'Funny',
+                'slug'              => 'funny'
 
             ],
             [
-                'title'              => 'Travel',
-                'slug'              => 'travel'
+                'title'              => 'Paris',
+                'slug'              => 'paris'
 
             ],
             [
@@ -68,6 +68,6 @@ class CategorySeeder extends Seeder
             ],
         ];
 
-        DB::table('categories')->insert($data);
+        DB::table('tags')->insert($data);
     }
 }

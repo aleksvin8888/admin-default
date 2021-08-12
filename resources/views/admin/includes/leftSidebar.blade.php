@@ -14,9 +14,9 @@
             </a>
             <a class="nav-link" href="{{route('admin.categories.index')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-list-ol"></i></div>
-                Categorys
+                Categories
             </a>
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('admin.tags.index')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
                 Tags
             </a>

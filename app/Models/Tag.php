@@ -29,5 +29,9 @@ class Tag extends Model
 
     //    явна привязка таблицы
     protected $table = 'tags';
-    protected $guarded = false;
+
+    protected $fillable = [
+        'title',
+
+    ];
 }

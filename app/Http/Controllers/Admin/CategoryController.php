@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateCategoryRequest;
 use App\Http\Requests\Admin\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Services\CategoryService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -30,13 +31,13 @@ final class CategoryController extends BaseController
     {
         $categories = Category::all();
 
-        return view('admin.category.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
 
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.categories.create');
     }
 
 
@@ -46,19 +47,21 @@ final class CategoryController extends BaseController
 
         $this->categoryService->create($data);
 
-        return redirect()->route('admin.categories.index');
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'категория успешно добавлена');
     }
 
 
     public function show(Category $category)
     {
-        return view('admin.category.show', compact('category'));
+        return view('admin.categories.show', compact('category'));
     }
 
 
     public function edit(Category $category)
     {
-        return view('admin.category.edit', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
 
@@ -68,7 +71,9 @@ final class CategoryController extends BaseController
 
         $this->categoryService->update($category, $data);
 
-        return redirect(route('admin.categories.index'))->with('success', 'Категория изменина');
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Категория изменина');
     }
 
 
@@ -79,10 +84,10 @@ final class CategoryController extends BaseController
         return redirect(route('admin.categories.index'))->with('success', 'Категория удалена');
     }
 
-    public function adminCategoriesModalAjaxDelete($id)
+    public function adminTagsModalAjaxDelete($id)
     {
-        $category = Category::find($id);
+        $tag = Tag::find($id);
 
-        return view('admin.category.delete', compact('category'));
+        return view('admin.tags.delete', compact('tag'));
     }
 }
