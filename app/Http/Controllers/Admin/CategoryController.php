@@ -84,10 +84,10 @@ final class CategoryController extends BaseController
         return redirect(route('admin.categories.index'))->with('success', 'Категория удалена');
     }
 
-    public function adminTagsModalAjaxDelete($id)
+    public function adminCategoriesModalAjaxDelete($id)
     {
-        $tag = Tag::find($id);
+        $category = Category::find($id);
 
-        return view('admin.tags.delete', compact('tag'));
+        return view('admin.categories.delete', compact('category'));
     }
 }

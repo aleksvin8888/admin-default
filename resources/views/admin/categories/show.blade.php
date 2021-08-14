@@ -6,13 +6,6 @@
 @endsection
 @section('mainContent')
     <div class="card mb-4">
-        <div class="card-header">
-            <div class="float-left">
-                <a class="btn btn-light" href="{{ route('admin.categories.index') }}" title="Go back">
-                    <small><i class="fas fa-backward "></i> <b>Вернуться</b></small>
-                </a>
-            </div>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover col-4" >

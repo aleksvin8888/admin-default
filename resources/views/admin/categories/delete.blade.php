@@ -2,7 +2,10 @@
     <div class="modal-body">
         @csrf
         @method('DELETE')
-        <h5 class="text-center"> !!! УДАЛЕНИЯ !!! категори Id - {{$category->id}} <br> {{$category->name}} </h5>
+        <h5 class="text-center"> !!! УДАЛЕНИЯ !!! категори Id - {{$category->id}}
+            <br>
+            <strong>{{$category->title}}</strong>
+        </h5>
 
     </div>
     <div class="modal-footer">

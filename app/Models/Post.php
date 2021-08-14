@@ -33,5 +33,16 @@ class Post extends Model
 
     //    явна привязка таблицы
     protected $table = 'posts';
-    protected $guarded = false;
+
+    protected $fillable = [
+        'title',
+        'content',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
 }

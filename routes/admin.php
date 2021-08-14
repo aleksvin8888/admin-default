@@ -11,6 +11,6 @@ Route::get('/', [MainController::class, 'dashboard'])->name('admin.main');
 require_once "admin/users.php";
 require "admin/categories.php";
 require "admin/tags.php";
-
+require "admin/posts.php";
 
 

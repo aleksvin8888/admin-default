@@ -8,13 +8,6 @@
 
 @section('mainContent')
     <div class="card mb-4">
-        <div class="card-header">
-            <div class="float-left">
-                <a class="btn btn-light" href="{{ route('admin.categories.index') }}" title="Go back">
-                    <small><i class="fas fa-backward "></i> <b>Вернуться</b></small>
-                </a>
-            </div>
-        </div>
         <div class="card-body">
             <form method="POST" action="{{ route('admin.categories.store') }}">
                 @csrf

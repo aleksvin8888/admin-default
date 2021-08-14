@@ -20,8 +20,8 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
                 Tags
             </a>
-            <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+            <a class="nav-link" href="{{route('admin.posts.index')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-paste"></i></div>
                 Posts
             </a>
         </div>
