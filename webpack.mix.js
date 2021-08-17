@@ -17,8 +17,3 @@ mix.css('resources/css/app.css', 'public/css')
     .sourceMaps();
 
 
-
-// mix.css('resources/dist/assets/css/app.css', 'public/dist/css')
-//     .js('resources/dist/assets/js/app.js', 'public/dist/js')
-//     .sass('resources/dist/sass/app.scss', 'public/dist/css')
-//     .sourceMaps();

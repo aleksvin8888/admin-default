@@ -65,18 +65,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-    // по умолчанию роль id-1 принадлежыт  админу.
-    // отредактировать присвоения  роли пользователю при регистрацыи
-            'role_id'=>'2',
-            'password' => Hash::make($data['password']),
-        ]);
+
+        $data['password'] = Hash::make($data['password']);
+
+
+        return User::create($data);
     }
 
-    public function showRegistrationForm()
-    {
-        return view('auth.login');
-    }
 }

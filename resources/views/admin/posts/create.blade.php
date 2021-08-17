@@ -24,7 +24,7 @@
                 <div class="form-group col-lg-10 mb-2">
                     <label for="content" class="col-xs-2 control-label">Контент:</label>
                     <div class="col-xs-8">
-                        <textarea type="text" name="content" id="content" class="form-control" placeholder="Enter content" >
+                        <textarea  type="text" name="content" id="content" class="form-control summernote" placeholder="Enter content" >
                             {{old('content')}}
                         </textarea>
                         @error('content')
