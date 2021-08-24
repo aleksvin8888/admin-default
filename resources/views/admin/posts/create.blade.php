@@ -50,6 +50,27 @@
                         @enderror
                     </div>
                 </div>
+                <div class="form-group col-lg-10 mb-2 ">
+                    <label for="tags_id" class="control-label ">Теги:</label>
+                    <div>
+                        <select class="select2 form-control"
+                                multiple="multiple"
+                                id="tags_id"
+                                name="tag_ids[]"
+                                style="width: 100%">
+                            @foreach($tags as $tag)
+                                <option
+                                    {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : ''}}
+                                    value="{{$tag->id}}">
+                                    {{$tag->title}}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('tag_ids')
+                        <div class="alert alert-danger">ошыбка выбора тега</div>
+                        @enderror
+                    </div>
+                </div>
                 <div class=" form-group col-lg-5 mb-2">
                     <div class=" custom-file ">
                         <input type="file"
@@ -76,7 +97,6 @@
                         @enderror
                     </div>
                 </div>
-
                 <div class="card-footer">
                     <div class="form-group col-lg-3">
                         <div class="col-xs-offset-2 col-xs-8">

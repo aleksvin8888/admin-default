@@ -6,6 +6,7 @@ use App\Http\Requests\Admin\CreatePostRequest;
 use App\Http\Requests\Admin\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,9 @@ final class PostController extends BaseController
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
 

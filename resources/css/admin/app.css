@@ -5,5 +5,8 @@
 
 @import "./admin.css";
 
+@import "~select2/dist/css/select2.min.css";
+
 @import "~summernote/dist/summernote.css";
+
 

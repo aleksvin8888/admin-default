@@ -18,6 +18,7 @@ final class PostService extends MySqlService
         DB::beginTransaction();
         try {
 
+
             $data['like'] = '0';
             $post = Post::make($data);
             $post->like = $data['like'];
@@ -29,6 +30,7 @@ final class PostService extends MySqlService
 
 
             $post->save();
+            $post->tags()->attach($data['tag_ids']);
 
             DB::commit();
 

@@ -35,7 +35,8 @@ class CreatePostRequest extends FormRequest
             ],
             'category_id' => [
                 'required',
-                'exists:categories,id'
+                'exists:categories,id',
+                'integer'
             ],
             'main_image' => [
                 'required',
@@ -49,6 +50,15 @@ class CreatePostRequest extends FormRequest
                 'mimes:jpeg,png,jpg,svg',
                 'max:30000000'
             ],
+            'tag_ids' => [
+                'nullable',
+                'array'
+            ],
+            'tag_ids.*' => [
+                'nullable',
+                'exists:tags,id',
+                'integer'
+            ]
         ];
     }
 }

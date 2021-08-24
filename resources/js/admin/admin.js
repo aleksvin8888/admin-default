@@ -83,6 +83,10 @@ $(document).ready(function() {
     var bsCustomFileInput = require('bs-custom-file-input/dist/bs-custom-file-input')
     bsCustomFileInput.init()
 
+    // init select2 multiple
+    $('.select2').select2()
+
+
 
 });
 
