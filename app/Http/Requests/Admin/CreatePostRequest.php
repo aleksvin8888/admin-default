@@ -34,7 +34,20 @@ class CreatePostRequest extends FormRequest
                 'string',
             ],
             'category_id' => [
-                'required'
+                'required',
+                'exists:categories,id'
+            ],
+            'main_image' => [
+                'required',
+                'image',
+                'mimes:jpeg,png,jpg,svg',
+                'max:30000000'
+            ],
+            'preview_image' => [
+                'required',
+                'image',
+                'mimes:jpeg,png,jpg,svg',
+                'max:30000000'
             ],
         ];
     }

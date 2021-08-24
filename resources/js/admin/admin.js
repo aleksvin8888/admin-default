@@ -58,14 +58,14 @@ $(document).on('click', '#smallButton', function(event) {
 
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
+
     $('#dataTable').DataTable({
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Ukrainian.json"
         },
     });
-});
 
-$(document).ready(function() {
+    // init summernote
     $('.summernote').summernote({
         toolbar: [
             // [groupName, [list of button]]
@@ -77,6 +77,12 @@ $(document).ready(function() {
             ['height', ['height']]
         ]
     });
-});
 
+
+    // init bsCustomFileInput
+    var bsCustomFileInput = require('bs-custom-file-input/dist/bs-custom-file-input')
+    bsCustomFileInput.init()
+
+
+});
 

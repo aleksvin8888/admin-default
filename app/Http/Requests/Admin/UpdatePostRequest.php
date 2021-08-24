@@ -36,6 +36,18 @@ class UpdatePostRequest extends FormRequest
             'category_id' => [
                 'required'
             ],
+            'main_image' => [
+                'required',
+                'image',
+                'mimes:jpeg,png,jpg,svg',
+                'max:30000000'
+            ],
+            'preview_image' => [
+                'required',
+                'image',
+                'mimes:jpeg,png,jpg,svg',
+                'max:30000000'
+            ],
 
         ];
     }

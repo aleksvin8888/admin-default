@@ -36,6 +36,7 @@ final class PostController extends BaseController
 
     public function store(CreatePostRequest $request)
     {
+
         $data = $request->validated();
 
         $this->postService->create($data);
