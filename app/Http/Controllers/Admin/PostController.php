@@ -59,17 +59,18 @@ final class PostController extends BaseController
     public function edit(Post $post)
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.edit', compact('post','categories' ));
+        return view('admin.posts.edit', compact('post','categories', 'tags' ));
     }
 
 
     public function update(UpdatePostRequest $request, Post $post)
     {
+
         $data = $request->validated();
 
         $this->postService->update($post, $data);
-
         return redirect()
             ->route('admin.posts.index')
             ->with('success', 'Пост успешно изменен');

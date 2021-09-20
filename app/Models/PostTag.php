@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|PostTag whereTagId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PostTag whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperPostTag
  */
 class PostTag extends Model
 {

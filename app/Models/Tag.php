@@ -21,6 +21,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Tag whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Tag whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $slug
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|Tag onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|Tag withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Tag withoutTrashed()
+ * @mixin IdeHelperTag
  */
 class Tag extends Model
 {

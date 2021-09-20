@@ -9,7 +9,7 @@
 @section('mainContent')
     <div class="card mb-4">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.posts.update', $post) }}" method="POST">
+            <form method="POST" action="{{ route('admin.posts.update', $post) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group col-lg-10 mb-2">
@@ -18,7 +18,7 @@
                         <input type="text" name="title" class="form-control" id="title" placeholder="Enter title"
                                value="{{old('title', $post->title)}}">
                         @error('title')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{$message}}</div>
                         @enderror
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             {{old('content', $post->content)}}
                         </textarea>
                         @error('content')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{$message}}</div>
                         @enderror
                     </div>
                 </div>
@@ -46,10 +46,63 @@
                             @endforeach
                         </select>
                         @error('category_id')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{$message}}</div>
                         @enderror
                     </div>
-
+                </div>
+                <div class="form-group col-lg-10 mb-2 ">
+                    <label for="tags_id" class="control-label ">Теги:</label>
+                    <div>
+                        <select class="select2 form-control"
+                                multiple="multiple"
+                                id="tags_id"
+                                name="tag_ids[]"
+                                style="width: 100%">
+                            @foreach($tags as $tag)
+                                <option
+                                    {{is_array($post->tags->pluck('id')->toArray())
+                                        && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : ''}}
+                                    value="{{$tag->id}}">
+                                    {{$tag->title}}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('tag_ids')
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class=" form-group col-lg-5 mb-2">
+                    <div class="w-25">
+                        <img src="{{ asset('storage/'. $post->main_image)  }}" alt="main_image" class="w-100">
+                    </div>
+                    <div class=" custom-file ">
+                        <input type="file"
+                               class="custom-file-input"
+                               id="customFileLangHTML"
+                               name="main_image">
+                        <label class="custom-file-label " for="customFileLangHTML" data-browse="Обрати файл">Обрати
+                            main_image</label>
+                        @error('main_image')
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class=" form-group col-lg-5 mb-2">
+                    <div class="w-25">
+                        <img src="{{ asset('storage/'. $post->preview_image) }}" alt="preview_image" class="w-100">
+                    </div>
+                    <div class=" custom-file   ">
+                        <input type="file"
+                               class="custom-file-input"
+                               id="customFileLangHTML"
+                               name="preview_image">
+                        <label class="custom-file-label " for="customFileLangHTML" data-browse="Обрати файл">Обрати
+                            preview_image </label>
+                        @error('preview_image')
+                        <div class="alert alert-danger">{{$message}}</div>
+                        @enderror
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="form-group col-lg-3">

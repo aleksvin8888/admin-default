@@ -25,6 +25,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $like
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null $main_image
+ * @property string|null $preview_image
+ * @property-read \App\Models\Category|null $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
+ * @property-read int|null $tags_count
+ * @method static \Illuminate\Database\Query\Builder|Post onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereLike($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereMainImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post wherePreviewImage($value)
+ * @method static \Illuminate\Database\Query\Builder|Post withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Post withoutTrashed()
+ * @mixin IdeHelperPost
  */
 class Post extends Model
 {
@@ -37,6 +52,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
+        'main_image',
+        'preview_image',
     ];
 
     public function category()

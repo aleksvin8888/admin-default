@@ -11,7 +11,6 @@ use Illuminate\Notifications\Notifiable;
 /**
  * App\Models\User
  *
- * @mixin IdeHelperUser
  * @property int $id
  * @property int|null $role_id
  * @property string $name
@@ -44,6 +43,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
+ * @mixin IdeHelperUser
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

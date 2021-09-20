@@ -12,6 +12,108 @@
 
 namespace App\Models{
 /**
+ * App\Models\Car
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Car newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Car newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Car query()
+ * @mixin \Eloquent
+ */
+	class IdeHelperCar extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Category
+ *
+ * @property int $id
+ * @property string $title
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\CategoryFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
+ * @mixin \Eloquent
+ * @property string $slug
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Post[] $posts
+ * @property-read int|null $posts_count
+ * @method static \Illuminate\Database\Query\Builder|Category onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Category withoutTrashed()
+ */
+	class IdeHelperCategory extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Post
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $content
+ * @property int|null $category_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
+ * @mixin \Eloquent
+ * @property int $like
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null $main_image
+ * @property string|null $preview_image
+ * @property-read \App\Models\Category|null $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
+ * @property-read int|null $tags_count
+ * @method static \Illuminate\Database\Query\Builder|Post onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereLike($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereMainImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post wherePreviewImage($value)
+ * @method static \Illuminate\Database\Query\Builder|Post withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Post withoutTrashed()
+ */
+	class IdeHelperPost extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\PostTag
+ *
+ * @property int $id
+ * @property int $post_id
+ * @property int $tag_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag query()
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag wherePostId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostTag whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperPostTag extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Role
  *
  * @mixin IdeHelperRole
@@ -30,6 +132,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
  */
 	class IdeHelperRole extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Tag
+ *
+ * @property int $id
+ * @property string $title
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereUpdatedAt($value)
+ * @mixin \Eloquent
+ * @property string $slug
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|Tag onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|Tag withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Tag withoutTrashed()
+ */
+	class IdeHelperTag extends \Eloquent {}
 }
 
 namespace App\Models{

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\Role
  *
- * @mixin IdeHelperRole
  * @property int $id
  * @property string $title
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -22,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
+ * @mixin IdeHelperRole
  */
 class Role extends Model
 {

@@ -24,6 +24,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @mixin \Eloquent
  * @property string $slug
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Post[] $posts
+ * @property-read int|null $posts_count
+ * @method static \Illuminate\Database\Query\Builder|Category onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Category withoutTrashed()
+ * @mixin IdeHelperCategory
  */
 class Category extends Model
 {

@@ -50,7 +50,7 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->category->title }}</td>
                             <td>{{ $post->like }}</td>
-                            <td>{{ $post->content }}</td>
+                            <td>{!! $post->content  !!} </td>
                             <td>{{ $post->created_at }}</td>
                             <td>
 

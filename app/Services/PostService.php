@@ -25,13 +25,14 @@ final class PostService extends MySqlService
 
             $post = $this->synchronize($post, $data, true);
 
-            $post['main_image'] = Storage::put('/images', $data['main_image']);
-            $post['preview_image'] = Storage::put('/images', $data['preview_image']);
+            $post['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+            $post['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
 
 
             $post->save();
-            $post->tags()->attach($data['tag_ids']);
-
+            if(isset($data['tag_ids'])) {
+                $post->tags()->attach($data['tag_ids']);
+            }
             DB::commit();
 
             return $post;
@@ -44,28 +45,40 @@ final class PostService extends MySqlService
 
     public function update(Post $post, array $data)
     {
-
         DB::beginTransaction();
         try {
+
             $post = $this->synchronize($post, $data, true);
+            $data['like'] = $post->like;
+
+            if(isset($data['main_image'])) {
+                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+            }
+            if(isset($data['preview_image'])) {
+                $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
+            }
+
 
             $post->update($data);
+
+            if(isset($data['tag_ids'])) {
+                $post->tags()->sync($data['tag_ids']);
+            }
 
             DB::commit();
 
             return $post;
         } catch(Exception $exception) {
+
             $this->handleException($exception);
         }
     }
 
     private function synchronize(Post $post, array $data, bool $true)
     {
-
         if(isset($data['category_id'])) {
             $post->category()->associate($data['category_id']);
         }
-
         return $post;
     }
 
