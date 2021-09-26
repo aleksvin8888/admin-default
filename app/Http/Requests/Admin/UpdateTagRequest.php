@@ -32,4 +32,13 @@ class UpdateTagRequest extends FormRequest
 
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Поле обезательно для заполнения',
+            'title.string' => 'Значения должно соответствовать строчному  типу',
+            'title.max' => 'Значения не должно привышать 255 знаков'
+        ];
+    }
 }

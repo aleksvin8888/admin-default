@@ -17,7 +17,7 @@
                         <input type="text" name="title" class="form-control" id="title" placeholder="Enter title"
                                value="{{old('title')}}">
                         @error('title')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>

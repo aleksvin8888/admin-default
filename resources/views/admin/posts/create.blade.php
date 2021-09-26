@@ -17,7 +17,7 @@
                         <input type="text" name="title" class="form-control" id="title" placeholder="Enter title"
                                value="{{old('title')}}">
                         @error('title')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             {{old('content')}}
                         </textarea>
                         @error('content')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             @endforeach
                         </select>
                         @error('category_id')
-                        <div class="alert alert-danger">Поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                             @endforeach
                         </select>
                         @error('tag_ids')
-                        <div class="alert alert-danger">ошыбка выбора тега</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <label class="custom-file-label " for="customFileLangHTML" data-browse="Обрати файл">Головне
                             зображення</label>
                         @error('main_image')
-                        <div class="alert alert-danger">Невірний формат зображення</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                         <label class="custom-file-label " for="customFileLangHTML" data-browse="Обрати файл">Обрати
                             зображення</label>
                         @error('preview_image')
-                        <div class="alert alert-danger">Невірний формат зображення</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>

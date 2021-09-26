@@ -22,8 +22,8 @@
                 @method('PUT')
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Имя:</strong>
-                        <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control"
+                        <label for="name"><strong>Элктронная почта:</strong></label>
+                        <input id="name" type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control"
                                placeholder="Имя">
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -33,8 +33,8 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Элктронная почта:</strong>
-                        <input type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control"
+                        <label for="email"><strong>Элктронная почта:</strong></label>
+                        <input id="email" type="text" name="email" value="{{ old('email', $user->email) }}" class="form-control"
                                placeholder="Элктронная почта">
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -56,6 +56,9 @@
                                 </option>
                             @endforeach
                         </select>
+                        @error('role_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -73,6 +76,9 @@
                                 <option value="0">Разблокировать</option>
                             @endif
                         </select>
+                        @error('is_blocked')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 

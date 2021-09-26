@@ -61,4 +61,30 @@ class CreatePostRequest extends FormRequest
             ]
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Поле обезательно для заполнения',
+            'title.string' => 'Поле должно соответствовать строчному типу',
+            'title.max' => 'Максимальное количество символоа 255',
+            'content.required' => 'Поле обезательно для заполнения',
+            'content.string' => 'Поле должно соответствовать строчному типу',
+            'category_id.required' => 'Поле обезательно для заполнения',
+            'category_id.integer' => 'Значения должно быть числовым',
+            'category_id.exists' => 'Выбраная категория должна быть в  базе',
+            'main_image.mimes' => 'Формат файла должен быть jpeg png jpg svg ',
+            'main_image.image' => 'Должен бить изображения',
+            'main_image.required' => 'Добавления изображения обезательно',
+            'main_image.max' => 'Привышен максимальный  розмер файла 30 MB',
+            'preview_image.mimes' => 'Формат файла должен быть jpeg png jpg svg ',
+            'preview_image.file' => 'Должен бить изображения',
+            'preview_image.required' => 'Добавления изображения обезательно',
+            'preview_image.max' => 'Привышен максимальный  розмер файла 30 MB',
+            'tag_ids.array' => 'Входяще значения должнобыть масивом',
+            'tag_ids.integer' => 'Входяще значения должнобыть числового типа',
+
+
+        ];
+    }
 }

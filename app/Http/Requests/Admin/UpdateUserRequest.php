@@ -24,10 +24,40 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'       => 'required|min:4|max:25',
-            'email'      => 'required|email',
-            'role_id'    => 'required',
-            'is_blocked'    => 'required',
+            'name' => [
+                'required',
+                'min:4',
+                'max:150',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'unique:users,email',
+            ],
+            'role_id' => [
+                'required',
+                'numeric',
+            ],
+            'is_blocked' => [
+                'required',
+                'numeric',
+            ],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Поле обезательно для заполнения',
+            'name.min' => 'Минимальное значения 4 символа',
+            'name.max' => 'Максимальное значения 150 символов',
+            'email.required' => 'Поле обезательно для заполнения',
+            'email.email' => 'Поле не соответствует стандартам електронной  почты',
+            'email.unique' => 'Пользователь с таким email уже существует',
+            'role_id.required' => 'Поле обезательно для заполнения',
+            'role_id.numeric' => 'Поле должно быть числом',
+            'is_blocked.required' => 'Поле обезательно для заполнения',
+            'is_blocked.numeric' => 'Поле должно быть числом',
         ];
     }
 }

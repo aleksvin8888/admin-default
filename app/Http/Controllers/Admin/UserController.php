@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\CreateUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
+use App\Mail\User\CreatePasswordMail;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\UserService;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Mail;
 
 
 final class UserController extends BaseController
@@ -36,10 +39,14 @@ final class UserController extends BaseController
 
     public function store(CreateUserRequest $request)
     {
+        $data = $request->validated();
 
         $user = $this
             ->userService
             ->create($request->validated());
+
+        Mail::to($data['email'])->send(new CreatePasswordMail($data));
+        event(new  Registered($user));
 
         if($user) {
             return redirect()->route('admin.users.index')->with('success', 'Користувач успішно доданий');

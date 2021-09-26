@@ -23,7 +23,7 @@
                                class="form-control"
                                placeholder="title">
                         @error('title')
-                        <div class="alert alert-danger">поле обезательно для заполнения</div>
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>

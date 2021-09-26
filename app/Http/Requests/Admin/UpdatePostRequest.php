@@ -40,13 +40,13 @@ class UpdatePostRequest extends FormRequest
             ],
             'main_image' => [
                 'nullable',
-                'file',
+                'image',
                 'mimes:jpeg,png,jpg,svg',
                 'max:30000000'
             ],
             'preview_image' => [
                 'nullable',
-                'file',
+                'image',
                 'mimes:jpeg,png,jpg,svg',
                 'max:30000000'
             ],
@@ -68,7 +68,7 @@ class UpdatePostRequest extends FormRequest
         return [
             'title.required' => 'Поле обезательно для заполнения',
             'title.string' => 'Поле должно соответствовать строчному типу',
-            'title.max:255' => 'Максимальное количество символоа 255',
+            'title.max' => 'Максимальное количество символоа 255',
             'content.required' => 'Поле обезательно для заполнения',
             'content.string' => 'Поле должно соответствовать строчному типу',
             'category_id.required' => 'Поле обезательно для заполнения',
@@ -76,10 +76,10 @@ class UpdatePostRequest extends FormRequest
             'category_id.exists' => 'Выбраная категория должна быть в  базе',
             'main_image.mimes' => 'Формат файла должен быть jpeg png jpg svg ',
             'preview_image.mimes' => 'Формат файла должен быть jpeg png jpg svg ',
-            'main_image.file' => 'Должен бить фаил',
-            'preview_image.file' => 'Должен бить фаил',
-            'preview_image.max:30000000' => 'Привышен максимальный  розмер файла 30 MB',
-            'main_image.max:30000000' => 'Привышен максимальный  розмер файла 30 MB',
+            'main_image.image' => 'Должен бить изображения',
+            'preview_image.image' => 'Должен бить изображения',
+            'preview_image.max' => 'Привышен максимальный  розмер файла 30 MB',
+            'main_image.max' => 'Привышен максимальный  розмер файла 30 MB',
             'tag_ids.array' => 'Входяще значения должнобыть масивом',
 
 
